@@ -5,9 +5,12 @@ import { RectButton, TextInput } from 'react-native-gesture-handler'
 
 import cloud from '../../assets/images/cloud.png'
 
+import SearcBox from '../../components/SearchBox'
+import PlusButton from '../../components/PlusButton'
+
 export default function Landing(){
   return(
-    <>
+    <View style={{backgroundColor: '#C4B2EB', height: '100%', alignItems: 'center'}}>
       <LinearGradient 
         style={styles.container}
         colors={['#4E14A8', '#8F27ED']}
@@ -19,8 +22,15 @@ export default function Landing(){
           <Text style={styles.registrados}>Sonhos registrados: 4</Text>
         </View>
         <Image source={cloud} style={{marginTop:'8%'}}></Image>
-      </LinearGradient >  
-    </>
+      </LinearGradient >
+      <SearcBox/>
+
+      
+
+      <View style={{position:'absolute', right: 30, bottom: 40}}>
+        <PlusButton/>
+      </View>
+    </View>
     
   )
 }
