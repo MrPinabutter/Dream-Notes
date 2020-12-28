@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   logoText:{
     fontSize:48,
     color: '#9166B8',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 
   button:{

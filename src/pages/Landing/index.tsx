@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, SafeAreaView, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { RectButton, TextInput } from 'react-native-gesture-handler'
 
@@ -7,6 +7,7 @@ import cloud from '../../assets/images/cloud.png'
 
 import SearcBox from '../../components/SearchBox'
 import PlusButton from '../../components/PlusButton'
+import Note from '../../components/Note'
 
 export default function Landing(){
   return(
@@ -25,7 +26,22 @@ export default function Landing(){
       </LinearGradient >
       <SearcBox/>
 
-      
+      <ScrollView showsVerticalScrollIndicator={false} style={{width: '100%'}}>
+        <View style={styles.notesContainer}>
+          <Note></Note>
+          <Note></Note>
+          <Note></Note>
+          <Note></Note>
+          <Note></Note>
+          <Note></Note>
+          <Note></Note>
+          <Note></Note>
+          <Note></Note>
+          <Note></Note>
+          <Note></Note>
+          <Note></Note>
+        </View>
+      </ScrollView>
 
       <View style={{position:'absolute', right: 30, bottom: 40}}>
         <PlusButton/>
@@ -67,5 +83,13 @@ const styles = StyleSheet.create({
     color:'#9166B8',
     fontSize: 14,
     fontWeight: '200',
+  },
+
+  notesContainer:{
+    width: '100%',
+    marginTop: 34,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center'
   }
 })
