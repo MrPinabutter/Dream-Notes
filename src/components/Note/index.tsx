@@ -28,26 +28,25 @@ const styles = StyleSheet.create({
   note:{
     width: '40%',
     height: 200,
-    backgroundColor: '#E8DDA5',
+    backgroundColor: '#FBFBFB',
     marginHorizontal: 10,
     marginVertical: 10,
     borderRadius: 10,
-    borderWidth: 0.5,
-    borderColor: '#918F6E'
+    borderColor: '#310D69',
   },
 
   title:{
     width: '100%', 
     height: 'auto',
-    backgroundColor: '#D1C194', 
+    backgroundColor: '#5516B5', 
     justifyContent: 'center', 
     borderTopEndRadius: 10, 
-    borderTopLeftRadius: 10
+    borderTopLeftRadius: 10,
   },
 
   titleText: {
     color:'#fff', 
     fontFamily: 'AutourOne_400Regular', 
-    fontSize: 14
+    fontSize: 14,
   }
 });
