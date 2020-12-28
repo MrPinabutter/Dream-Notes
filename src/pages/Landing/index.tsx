@@ -28,18 +28,12 @@ export default function Landing(){
 
       <ScrollView showsVerticalScrollIndicator={false} style={{width: '100%'}}>
         <View style={styles.notesContainer}>
-          <Note></Note>
-          <Note></Note>
-          <Note></Note>
-          <Note></Note>
-          <Note></Note>
-          <Note></Note>
-          <Note></Note>
-          <Note></Note>
-          <Note></Note>
-          <Note></Note>
-          <Note></Note>
-          <Note></Note>
+          <Note title="Piranhas assassinas comedoras de cerebro" dream="Eu tava na balada junto com os meus mano, e chegou o vanderlei pra da ideia errada"></Note>
+          <Note title="pelado" dream="Sonhei pelado na escola denovo :("></Note>
+          <Note title="uva" dream="sonhei queria mt um picolé de uva" ></Note>
+          <Note title="pesadelo" dream="Tava fugindo de um leão"></Note>
+          <Note title="focas" dream="Tava abraçando umas focas quando de repente um avião sai do chão e começa a me atacas"></Note>
+          <Note dream="teste"></Note>
         </View>
       </ScrollView>
 

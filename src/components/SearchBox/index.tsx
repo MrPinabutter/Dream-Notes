@@ -11,8 +11,8 @@ export default function SearcBox() {
 const styles = StyleSheet.create({
   box:{
     width: '90%',
-    height: 50,
-    borderRadius: 15,
+    height: 45,
+    borderRadius: 10,
     backgroundColor: '#f5f5f5',
     marginTop: 20,
     paddingLeft: 20,
