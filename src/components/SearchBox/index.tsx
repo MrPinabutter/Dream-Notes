@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
+
 export default function SearcBox() {
   return(
-    <TextInput style={styles.box} placeholder="Pesquise" />
+    <TextInput style={styles.box} placeholder="Pesquise"/>
   );
 }
 

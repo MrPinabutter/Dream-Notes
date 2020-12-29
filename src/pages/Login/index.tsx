@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 
   logoText:{
     fontSize:48,
-    color: '#9166B8',
+    color: '#B093C9',
     fontWeight: 'bold',
   },
 
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   label:{
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#9166B8',
+    color: '#B093C9',
     marginLeft: '-55%',
     marginBottom: 10
   }

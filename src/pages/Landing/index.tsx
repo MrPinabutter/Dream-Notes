@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, Text, StyleSheet, Image, ScrollView, Keyboard } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { RectButton, TextInput } from 'react-native-gesture-handler'
 
@@ -10,8 +10,32 @@ import PlusButton from '../../components/PlusButton'
 import Note from '../../components/Note'
 
 export default function Landing(){
+  const [focused, setFocused] = useState(true)
+
+  function handleFocus(){
+    setFocused(!focused)
+  }
+
+  useEffect(() => {
+    Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
+    Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
+
+    return () => {
+      Keyboard.removeListener("keyboardDidShow", _keyboardDidShow);
+      Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
+    };
+  }, []);
+
+  const _keyboardDidShow = () => {
+    setFocused(false)
+  };
+
+  const _keyboardDidHide = () => {
+    setFocused(true)
+  };
+
   return(
-    <View style={{backgroundColor: '#C4B2EB', height: '100%', alignItems: 'center'}}>
+    <View style={{backgroundColor: '#E5DAFC', height: '100%', alignItems: 'center'}}>
       <LinearGradient 
         style={styles.container}
         colors={['#4E14A8', '#8F27ED']}
@@ -24,7 +48,7 @@ export default function Landing(){
         </View>
         <Image source={cloud} style={{marginTop:'8%'}}></Image>
       </LinearGradient >
-      <SearcBox/>
+      <SearcBox focus={handleFocus}/>
 
       <ScrollView showsVerticalScrollIndicator={false} style={{width: '100%'}}>
         <View style={styles.notesContainer}>
@@ -37,9 +61,11 @@ export default function Landing(){
         </View>
       </ScrollView>
 
-      <View style={{position:'absolute', right: 30, bottom: 40}}>
-        <PlusButton/>
-      </View>
+      {focused && 
+        <View style={{position:'absolute', right: 20, bottom: 30}}>
+          <PlusButton/>
+        </View>
+      }
     </View>
     
   )
