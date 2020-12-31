@@ -1009,6 +1009,16 @@
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/autour-one/-/autour-one-0.1.0.tgz#a2e018da452baa6f6ebd9284654a13d11c5250bd"
   integrity sha512-QcqWcDY10lb2ofIssh290En5bHssmuhUDsUaEBZE9u5d3dUBnL8GiRUN6MF4aXPPI70qyRFSIEnf6OKNYTO0/w==
 
+"@expo-google-fonts/comfortaa@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/comfortaa/-/comfortaa-0.1.0.tgz#8321f87a42dc6bda420691354feb24eccb8b0668"
+  integrity sha512-DTvEiqFf2bjOgKMBqSWNIFweqw6DyzNQrLyzFeO5WGlNKET252nVju5fY8Ur/TInvKjhp4Sc59VLZyVrETrYLQ==
+
+"@expo-google-fonts/montserrat@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/montserrat/-/montserrat-0.1.0.tgz#745361cf6c7414749161930e94ccc962ed8ee7d3"
+  integrity sha512-jSGVtgapN4Ahxf/p978TWIPV+Ax2cc60671BzkewLG/zGNIyRreE3eXsVJudotpRl2fRJQC5Q98DARfPh917Jg==
+
 "@expo-google-fonts/nanum-myeongjo@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/nanum-myeongjo/-/nanum-myeongjo-0.1.0.tgz#fcc757b2f11958e883fe24bb9b7d7f8346b9e9cd"
@@ -1023,6 +1033,11 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/patrick-hand/-/patrick-hand-0.1.0.tgz#74689352cc029ed3390b9dfa1bb7495f2b4d623c"
   integrity sha512-6HnBeM0GpCnRg0+DT8nv+00plVPqSwv4PojfXOWVM/ddb18FdO66+Ow5AiOmvToAlNKve9YNDF76aNmPZArpdA==
+
+"@expo-google-fonts/roboto-slab@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/roboto-slab/-/roboto-slab-0.1.0.tgz#f2e074b954275f9820602b05251ca0692bc02c6f"
+  integrity sha512-C5YKllmFAIbzxzSeMBkKHQq3IFdE9Z9NcSmtOluTowhTRiIaqFHasVU2FY9wPK/pg5f72dKYkxsVLq52t33QlQ==
 
 "@expo/configure-splash-screen@0.2.0":
   version "0.2.0"

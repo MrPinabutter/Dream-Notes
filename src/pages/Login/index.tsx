@@ -22,7 +22,7 @@ export default function Landing(){
         <Text style={styles.logoText}>Dream {'\n'}Note</Text>
       </View>
       <View style={{width:'100%', alignItems:'center'}}>
-        <Text style={styles.label}>Nome</Text>
+        <Text style={styles.label}>Dreamer</Text>
         <TextInput placeholder="Seu nome" style={styles.inputContainer}></TextInput>
       </View>
       <RectButton style={styles.button} onPress={handleNavigationToLanding}>
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   logoText:{
     fontSize:48,
     color: '#B093C9',
-    fontWeight: 'bold',
+    fontFamily: 'Comfortaa_700Bold'
   },
 
   button:{
@@ -74,14 +74,15 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius:15,
     backgroundColor: '#f5f5f5',
-    paddingLeft: 15
+    paddingLeft: 15,
+    fontFamily: 'Montserrat_400Regular'
   }, 
 
   label:{
     fontSize: 24,
-    fontWeight: 'bold',
+    fontFamily: 'Montserrat_400Regular',
     color: '#B093C9',
-    marginLeft: '-55%',
+    marginLeft: '-45%',
     marginBottom: 10
   }
 })

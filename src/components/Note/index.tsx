@@ -16,7 +16,7 @@ export default function Note({...props}:NoteProps) {
         </View>
       </View>
       <View style={{padding: 15, paddingTop:10, overflow: 'hidden', height: 132}}>
-        <Text style={{fontFamily: 'PatrickHand_400Regular', color: '#52503E'}}>
+        <Text style={{fontFamily: 'RobotoSlab_400Regular', color: '#52503E', fontSize: 14}}>
           {props.dream}
         </Text>
       </View>
@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 10,
     borderColor: '#310D69',
+    overflow: 'hidden',
+    paddingBottom: 45
   },
 
   title:{
@@ -47,6 +49,6 @@ const styles = StyleSheet.create({
   titleText: {
     color:'#fff', 
     fontFamily: 'AutourOne_400Regular', 
-    fontSize: 14,
+    fontSize: 16,
   }
 });

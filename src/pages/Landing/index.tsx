@@ -43,16 +43,16 @@ export default function Landing(){
         end={{x:1,y:1}}
       > 
         <View style={styles.textDate}>
-          <Text style={styles.date}>Dia 21/11</Text>
+          <Text style={styles.date}>Dia {new Date().getDate()}/{new Date().getMonth() + 1}</Text>
           <Text style={styles.registrados}>Sonhos registrados: 4</Text>
         </View>
         <Image source={cloud} style={{marginTop:'8%'}}></Image>
       </LinearGradient >
-      <SearcBox focus={handleFocus}/>
+      <SearcBox/>
 
       <ScrollView showsVerticalScrollIndicator={false} style={{width: '100%'}}>
         <View style={styles.notesContainer}>
-          <Note title="Piranhas assassinas comedoras de cerebro" dream="Eu tava na balada junto com os meus mano, e chegou o vanderlei pra da ideia errada"></Note>
+          <Note title="Piranhas assassinas comedoras de cerebro" dream="Eu tava na balada balaad bladada blalasl alsldals alsdfasldflasdf las dflasdf  junto com os meus mano, e chegou o vanderlei pra da ideia errada"></Note>
           <Note title="pelado" dream="Sonhei pelado na escola denovo :("></Note>
           <Note title="uva" dream="sonhei queria mt um picolé de uva" ></Note>
           <Note title="pesadelo" dream="Tava fugindo de um leão"></Note>
@@ -89,18 +89,20 @@ const styles = StyleSheet.create({
   },
 
   date:{
-    fontWeight: '600',
-    color: '#AA81CF',
+    fontFamily: 'Comfortaa_700Bold',
+    color: '#D8AFF4',
     fontSize: 24
   },
 
   textDate:{
+    fontFamily: 'Montserrat_400Regular',
     marginTop:'6%',
     marginLeft: '5%',
   },
 
   registrados:{
-    color:'#9166B8',
+    fontFamily: 'Montserrat_400Regular',
+    color:'#A17AC5',
     fontSize: 14,
     fontWeight: '200',
   },
