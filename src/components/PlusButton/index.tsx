@@ -2,12 +2,19 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient'; 
+import { useNavigation } from '@react-navigation/native';
 
 import { Feather } from '@expo/vector-icons';
 
 export default function PlusButton() {
+  const { navigate } = useNavigation()
+
+  function handleNavigationToCreateDreams(){
+    navigate('createDream')
+  }
+
   return (
-    <TouchableOpacity style={{width:'100%', height:'100%', borderRadius:40}} >
+    <TouchableOpacity style={{width:'100%', height:'100%', borderRadius:40}} onPress={handleNavigationToCreateDreams}>
       <LinearGradient 
         colors={['#4F09BA', '#9F34FF']} 
         start={{x:0,y:0}}
