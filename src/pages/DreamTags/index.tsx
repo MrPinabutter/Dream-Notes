@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { AntDesign, EvilIcons, Feather, Ionicons } from '@expo/vector-icons'
+import { Feather, Ionicons } from '@expo/vector-icons'
 import { RectButton, ScrollView, TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
@@ -15,23 +15,13 @@ export default function DreamTags(){
   }
 
   function addTag(newTag: string) {
-    // Verificador 
     let ver = true
+    if(newTag == '') { ver = false }
 
-    // Impede tags vazias
-    if(newTag == ''){
-      ver = false
-    }
-
-    // Impede Tags Repeditas
     arrayTags.forEach(tagAtual => {
-      if(newTag === tagAtual){
-        ver = false
-      }
+      if(newTag === tagAtual) { ver = false }
     })
-
-    // Salva e exibe a tag
-    if (ver == true){
+    if(ver == true) {
       setArrayTags([...arrayTags, newTag])
       setTag('')
     }
