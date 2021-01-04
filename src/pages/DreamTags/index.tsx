@@ -66,7 +66,8 @@ export default function DreamTags(){
           />
 
           <RectButton
-            onPress={() => addTag(tag)} 
+            onPress={(e) => addTag(tag)}
+            disallowInterruption 
             style={styles.addTagsButton}>
             <Text style={styles.plusText}>
               +
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
   addTagsButton: {
     flex: 1,
     height: 45, 
-    backgroundColor: '#7C52A3', 
+    backgroundColor: '#38107A', 
     borderRadius: 15, 
     padding: 15, 
     justifyContent: 'center', 
@@ -180,9 +181,10 @@ const styles = StyleSheet.create({
   tag: {
     width:'auto', 
     height: 30, 
-    backgroundColor: '#FEFFD4', 
+    backgroundColor: '#FDED9D', 
     alignItems: 'center', 
     justifyContent: 'center', 
+    paddingLeft: 8,
     padding: 5, 
     flexDirection: 'row', 
     marginLeft: 10, 
@@ -200,9 +202,9 @@ const styles = StyleSheet.create({
   },
 
   tagText: {
-    fontFamily: 'Montserrat_400Regular',
+    fontFamily: 'RobotoSlab_700Bold',
     fontSize: 14,
-    color: '#5B4370',
+    color: '#333',
     marginRight: 5
   }
 });

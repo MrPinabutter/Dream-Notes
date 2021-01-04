@@ -8,7 +8,7 @@ import { PatrickHand_400Regular } from '@expo-google-fonts/patrick-hand'
 import { AutourOne_400Regular } from '@expo-google-fonts/autour-one'
 import { Comfortaa_700Bold } from '@expo-google-fonts/comfortaa'
 import { Montserrat_400Regular } from '@expo-google-fonts/montserrat'
-import { RobotoSlab_400Regular } from '@expo-google-fonts/roboto-slab'
+import { RobotoSlab_400Regular, RobotoSlab_700Bold } from '@expo-google-fonts/roboto-slab'
 
 import AppStack from './src/routes/AppStack'
 
@@ -19,7 +19,8 @@ export default function App() {
     PatrickHand_400Regular,
     Comfortaa_700Bold,
     Montserrat_400Regular,
-    NanumMyeongjo_800ExtraBold
+    NanumMyeongjo_800ExtraBold,
+    RobotoSlab_700Bold
   });
 
   if (!fontsLoaded) {
