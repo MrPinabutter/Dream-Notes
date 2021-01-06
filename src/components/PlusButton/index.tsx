@@ -10,7 +10,7 @@ export default function PlusButton() {
   const { navigate } = useNavigation()
 
   function handleNavigationToCreateDreams(){
-    navigate('createDream')
+    navigate('DreamTags')
   }
 
   return (
