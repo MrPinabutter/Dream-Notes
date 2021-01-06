@@ -31,9 +31,9 @@ export default function CreateDream({route}: any) {
         </View>
         <TextInput style={styles.dreamText} multiline></TextInput>
         
-        <View style={{width: '90%', marginBottom: 10, marginTop: 5}}>
+        {arrayTags && <View style={{width: '90%', marginBottom: 10, marginTop: 5}}>
           <Text style={styles.titleText}>Suas tags </Text>
-        </View>
+        </View>}
 
         <View style={{flexDirection: 'row', flexWrap: 'wrap', width: '100%'}}>
           {arrayTags.map((tag: string, idx: number) => {
