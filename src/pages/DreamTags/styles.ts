@@ -88,7 +88,8 @@ const styles = StyleSheet.create({
     padding: 5, 
     flexDirection: 'row', 
     marginLeft: 10, 
-    marginBottom: 14
+    marginBottom: 14,
+    elevation: 4,
   },
 
   removeTag: {

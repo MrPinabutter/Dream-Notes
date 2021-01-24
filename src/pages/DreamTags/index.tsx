@@ -70,6 +70,7 @@ export default function DreamTags(){
             value={tag}
             style={styles.textInput}
             onChangeText={setTag}
+            maxLength={30}
           />
 
           <RectButton

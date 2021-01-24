@@ -39,21 +39,19 @@ export default function CreateDream({route}: any) {
           {arrayTags.map((tag: string, idx: number) => {
             return(
               <View key={tag} style={styles.tag}>
-                <View style={{width:6, height: 6, backgroundColor: '#aaa', borderRadius: 10, marginRight: 5}} />
+                <View style={{width:6, height: 6, backgroundColor: '#7F97B0', borderRadius: 10, marginRight: 5}} />
                 <Text style={styles.tagText}>{tag}</Text>
               </View>
             )
           })}
         </View>
-      </ScrollView>
 
-      <View style={{height:100, width: '90%', alignItems: 'center', position: 'relative'}}>
         <RectButton style={styles.continueButton} onPress={() => {}}>
           <Text style={styles.continueText}>
             Finalizar
           </Text>
         </RectButton>
-      </View>
+      </ScrollView>
     </View>
   )
 }
@@ -118,7 +116,8 @@ const styles = StyleSheet.create({
     padding: 5, 
     flexDirection: 'row', 
     marginLeft: 10, 
-    marginBottom: 14
+    marginBottom: 14,
+    elevation: 4
   },
 
   removeTag: {
@@ -146,6 +145,7 @@ const styles = StyleSheet.create({
     padding: 15, 
     justifyContent: 'center', 
     alignItems: 'center', 
+    marginTop: 30
   },
 
   continueText: {
