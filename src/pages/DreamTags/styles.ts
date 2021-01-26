@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     padding: 15, 
     justifyContent: 'center', 
     alignItems: 'center', 
+    elevation: 4
   },
 
   continueText: {
@@ -103,9 +104,9 @@ const styles = StyleSheet.create({
   },
 
   tagText: {
-    fontFamily: 'RobotoSlab_700Bold',
+    fontFamily: 'RobotoSlab_400Regular',
     fontSize: 14,
-    color: '#333',
+    color: '#222',
     marginRight: 5
   }
 });

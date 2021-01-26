@@ -1,16 +1,24 @@
 import { Feather, Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { RectButton, TextInput } from 'react-native-gesture-handler';
 
-export default function CreateDream({route}: any) {
+export default function CreateDream({route, navigation}: any) {
   const {arrayTags} = route.params
+  console.log(arrayTags);
+  
+  const { goBack } = useNavigation()
+
+  function handleGoDreamTags() {
+    goBack()
+  }
 
   return(
     <View style={styles.container}>
       <View style={styles.header}>
         <RectButton
-          onPress={() => {}}
+          onPress={handleGoDreamTags}
         >
           <Feather name="chevron-left" size={32} color="#AC88CC" />
         </RectButton>
@@ -22,16 +30,20 @@ export default function CreateDream({route}: any) {
 
       <ScrollView style={{width: '90%'}} contentContainerStyle={{alignItems: 'center'}} showsVerticalScrollIndicator={false}>
         <View style={{width: '90%', marginBottom: 10}}>
-          <Text style={styles.titleText}>Título </Text>
+          <Text style={styles.titleText}>Título (Opcional) </Text>
         </View>
-        <TextInput style={styles.textInputTitle}></TextInput>
+        <TextInput 
+          style={styles.textInputTitle} 
+          maxLength={40}
+
+        ></TextInput>
 
         <View style={{width: '90%', marginBottom: 10, marginTop: 5}}>
           <Text style={styles.titleText}>Seu sonho </Text>
         </View>
         <TextInput style={styles.dreamText} multiline></TextInput>
         
-        {arrayTags && <View style={{width: '90%', marginBottom: 10, marginTop: 5}}>
+        {arrayTags.length != 0 && <View style={{width: '90%', marginBottom: 10, marginTop: 5}}>
           <Text style={styles.titleText}>Suas tags </Text>
         </View>}
 
@@ -131,7 +143,7 @@ const styles = StyleSheet.create({
   },
 
   tagText: {
-    fontFamily: 'RobotoSlab_700Bold',
+    fontFamily: 'RobotoSlab_400Regular',
     fontSize: 14,
     color: '#333',
     marginRight: 5
@@ -145,7 +157,9 @@ const styles = StyleSheet.create({
     padding: 15, 
     justifyContent: 'center', 
     alignItems: 'center', 
-    marginTop: 30
+    marginTop: 30,
+    marginBottom: 20,
+    elevation: 4
   },
 
   continueText: {

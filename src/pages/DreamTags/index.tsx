@@ -69,8 +69,14 @@ export default function DreamTags(){
           <TextInput 
             value={tag}
             style={styles.textInput}
-            onChangeText={setTag}
             maxLength={30}
+            onKeyPress={(event) => {
+              if(event.nativeEvent.key == 'Enter'){
+                addTag(tag)
+              }
+            }
+          }
+          onChangeText={(e) => setTag(e.replace('\n', ''))}
           />
 
           <RectButton
