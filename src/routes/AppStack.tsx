@@ -5,7 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../pages/Login';
 import Landing from '../pages/Landing';
 import DreamTags from '../pages/DreamTags';
-import CreateDream from '../pages/CreateDream'
+import CreateDream from '../pages/CreateDream';
+import DreamNote from '../pages/DreamNote';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -16,6 +17,7 @@ function AppStack() {
         <Screen name="Login" component={Login} />
         <Screen name="DreamTags" component={DreamTags} />
         <Screen name="CreateDream" component={CreateDream} />
+        <Screen name="DreamNote" component={DreamNote} />
         <Screen name="Landing" component={Landing} />
       </Navigator>
     </NavigationContainer> 

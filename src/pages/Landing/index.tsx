@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Image, ScrollView, Keyboard } from 'react-native'
+import { View, Text, Image, ScrollView, Keyboard } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import { RectButton, TextInput } from 'react-native-gesture-handler'
 
 import cloud from '../../assets/images/cloud.png'
 
@@ -50,7 +49,7 @@ export default function Landing(){
 
       <ScrollView showsVerticalScrollIndicator={false} style={{width: '100%'}}>
         <View style={styles.notesContainer}>
-          <Note title="Piranhas assassinas comedoras de cerebro " dream="Eu tava na balada balaad bladada blalasl alsldals alsdfasldflasdf las dflasdf  junto com os meus mano, e chegou o vanderlei pra da ideia errada"></Note>
+          <Note title="Piranhas assassinas comedoras de cerebro " dream="Eu tava na balada asdfa fasdfa balaad bladada blalasl alsldals alsdfasldflasdASOIDFJAOSDFJ sdpofjasof aospdfijasoidf asodifjaosidfj asiodfj asodif saoidfj asodopasidfjaos dfoiasdjf asopidfj asdofiajsd foaisjdfaosdi fapsodif"></Note>
           <Note title="pelado" dream="Sonhei pelado na escola denovo :("></Note>
           <Note title="uva" dream="sonhei queria mt um picolé de uva" ></Note>
           <Note title="pesadelo" dream="Tava fugindo de um leão"></Note>

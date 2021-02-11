@@ -1,5 +1,9 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
+
+import styles from './styles';
 
 interface NoteProps {
   title?: string
@@ -8,47 +12,23 @@ interface NoteProps {
 }
 
 export default function Note({...props}:NoteProps) {
+  const { navigate } = useNavigation()
+
+  function handleNavigaionToDreamNote(){
+    navigate('DreamNote')
+  }
   return (
-    <View style={styles.note}>
+    <RectButton onPress={handleNavigaionToDreamNote} style={styles.note}>
       <View style={styles.title}>
         <View style={{padding:10}}>
           <Text style={styles.titleText}>{props.title ? props.title: 'Sonho'}</Text>
         </View>
       </View>
-      <View style={{padding: 15, paddingTop:10, overflow: 'hidden', height: 132}}>
-        <Text style={{fontFamily: 'RobotoSlab_400Regular', color: '#52503E', fontSize: 14}}>
+      <View style={{padding: 15, paddingTop: 8, overflow: 'hidden', height: 'auto'}}>
+        <Text style={{fontFamily: 'RobotoSlab_400Regular', color: '#52503E', fontSize: 14, height: 150, textAlign: 'justify'}}>
           {props.dream}
         </Text>
       </View>
-    </View>
+    </RectButton>
   );
 }
-
-const styles = StyleSheet.create({
-  note:{
-    width: '40%',
-    height: 200,
-    backgroundColor: '#FBFBFB',
-    marginHorizontal: 10,
-    marginVertical: 10,
-    borderRadius: 10,
-    borderColor: '#310D69',
-    overflow: 'hidden',
-    paddingBottom: 45
-  },
-
-  title:{
-    width: '100%', 
-    height: 'auto',
-    backgroundColor: '#5516B5', 
-    justifyContent: 'center', 
-    borderTopEndRadius: 10, 
-    borderTopLeftRadius: 10,
-  },
-
-  titleText: {
-    color:'#fff', 
-    fontFamily: 'AutourOne_400Regular', 
-    fontSize: 16,
-  }
-});
