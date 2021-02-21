@@ -1,15 +1,44 @@
-import { Feather, Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { View, Text, ScrollView } from 'react-native';
 import { RectButton, TextInput } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import styles from './styles'
 
-export default function CreateDream({route, navigation}: any) {
-  const {arrayTags} = route.params
-  console.log(arrayTags);
-  
+type ParamsProps = {
+  A: undefined,
+  B: {
+    arrayTags: Array<string>
+  } 
+}
+
+export default function CreateDream() {
+  const [title, setTitle] = useState('')
+  const [dreamText, setDreamText] = useState('')
+
+  const route = useRoute<RouteProp<ParamsProps, 'B'>>()
+  const { params } = route
+  const { arrayTags } = params
+
+  const { navigate } = useNavigation()
+
+  function handleNavigateToLanding(){ 
+    navigate('Landing')
+  }
+
+  async function handleSaveDream() {
+    await AsyncStorage.getItem('@Dreams').then(dreams => {
+      const d = dreams ? JSON.parse(dreams) : []
+      console.log(d)      
+      d.push({title, dreamText, arrayTags})
+      AsyncStorage.setItem('@Dreams', JSON.stringify(d))
+    }).catch(e => console.log(e))
+    handleNavigateToLanding()
+  }
+
+
   const { goBack } = useNavigation()
 
   function handleGoDreamTags() {
@@ -37,13 +66,19 @@ export default function CreateDream({route, navigation}: any) {
         <TextInput 
           style={styles.textInputTitle} 
           maxLength={40}
-
+          value={title}
+          onChangeText={setTitle}
         ></TextInput>
 
         <View style={{width: '90%', marginBottom: 10, marginTop: 5}}>
           <Text style={styles.titleText}>Seu sonho </Text>
         </View>
-        <TextInput style={styles.dreamText} multiline></TextInput>
+        <TextInput 
+          style={styles.dreamText} 
+          multiline
+          value={dreamText}
+          onChangeText={setDreamText}
+        ></TextInput>
         
         {arrayTags.length != 0 && <View style={{width: '90%', marginBottom: 10, marginTop: 5}}>
           <Text style={styles.titleText}>Suas tags </Text>
@@ -60,7 +95,7 @@ export default function CreateDream({route, navigation}: any) {
           })}
         </View>
 
-        <RectButton style={styles.continueButton} onPress={() => {}}>
+        <RectButton style={styles.continueButton} onPress={handleSaveDream}>
           <Text style={styles.continueText}>
             Finalizar
           </Text>
