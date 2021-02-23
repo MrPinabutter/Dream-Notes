@@ -25,7 +25,7 @@ export default function Note({...props}:NoteProps) {
         </View>
       </View>
       <View style={{padding: 15, paddingTop: 8, overflow: 'hidden', height: 'auto'}}>
-        <Text style={{fontFamily: 'RobotoSlab_400Regular', color: '#52503E', fontSize: 14, height: 150, textAlign: 'justify'}}>
+        <Text style={{fontFamily: 'RobotoSlab_400Regular', color: '#52503E', fontSize: 14, height: 150}}>
           {props.dream}
         </Text>
       </View>

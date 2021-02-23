@@ -1,17 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, Image, ScrollView, Keyboard } from 'react-native'
-import { LinearGradient } from 'expo-linear-gradient'
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image, ScrollView, Keyboard } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
-import cloud from '../../assets/images/cloud.png'
+import cloud from '../../assets/images/cloud.png';
 
-import SearcBox from '../../components/SearchBox'
-import PlusButton from '../../components/PlusButton'
-import Note from '../../components/Note'
+import SearcBox from '../../components/SearchBox';
+import PlusButton from '../../components/PlusButton';
+import Note from '../../components/Note';
 
-import styles from './styles'
+import styles from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AppLoading } from 'expo';
+
+interface DreamProps{
+  arrayTags: Array<string>;
+  title: string;
+  dreamText: string;
+}
 
 export default function Landing(){
-  const [focused, setFocused] = useState(true)
+  const [focused, setFocused] = useState(true);
+  const [isLoading, setLoading] = useState(true);
+  const [dreams, setDreams] = useState([]);
 
   useEffect(() => {
     Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
@@ -23,12 +33,33 @@ export default function Landing(){
     };
   }, []);
 
+  async function GetDreams() {
+    const item = await AsyncStorage.getItem("@Dreams");
+    const value = item ? JSON.parse(item) : [];
+    console.log(value);
+    
+    setDreams(value);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    GetDreams();
+  }, []);
+
   const _keyboardDidShow = () => {
-    setFocused(false)
+    setFocused(false);
   };
 
   const _keyboardDidHide = () => {
-    setFocused(true)
+    setFocused(true);
+  };
+
+  if(isLoading){
+    return (
+      <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
+        <AppLoading  />
+      </View>
+    );
   };
 
   return(
@@ -49,12 +80,9 @@ export default function Landing(){
 
       <ScrollView showsVerticalScrollIndicator={false} style={{width: '100%'}}>
         <View style={styles.notesContainer}>
-          <Note title="Piranhas assassinas comedoras de cerebro " dream="Eu tava na balada asdfa fasdfa balaad bladada blalasl alsldals alsdfasldflasdASOIDFJAOSDFJ sdpofjasof aospdfijasoidf asodifjaosidfj asiodfj asodif saoidfj asodopasidfjaos dfoiasdjf asopidfj asdofiajsd foaisjdfaosdi fapsodif"></Note>
-          <Note title="pelado" dream="Sonhei pelado na escola denovo :("></Note>
-          <Note title="uva" dream="sonhei queria mt um picolé de uva" ></Note>
-          <Note title="pesadelo" dream="Tava fugindo de um leão"></Note>
-          <Note title="focas" dream="Tava abraçando umas focas quando de repente um avião sai do chão e começa a me atacas"></Note>
-          <Note dream="teste"></Note>
+          {dreams.map((dream: DreamProps) => {
+            return <Note key={dream.title} title={dream.title} dream={dream.dreamText} />
+          })}
         </View>
       </ScrollView>
 

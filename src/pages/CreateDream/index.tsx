@@ -1,5 +1,5 @@
 import { Feather } from '@expo/vector-icons';
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { RouteProp, useNavigation, useRoute, StackActions } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { RectButton, TextInput } from 'react-native-gesture-handler';
@@ -22,10 +22,11 @@ export default function CreateDream() {
   const { params } = route
   const { arrayTags } = params
 
-  const { navigate } = useNavigation()
+  const { dispatch } = useNavigation()
+  const pushAction = StackActions.push('Landing')
 
   function handleNavigateToLanding(){ 
-    navigate('Landing')
+    dispatch(pushAction)
   }
 
   async function handleSaveDream() {
