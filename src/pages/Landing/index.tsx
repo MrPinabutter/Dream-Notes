@@ -83,6 +83,7 @@ export default function Landing(){
           {dreams.map((dream: DreamProps) => {
             return <Note key={dream.title} title={dream.title} dream={dream.dreamText} />
           })}
+          <View style={{overflow: 'hidden', width: '40%', height: 260, marginHorizontal:10}} />
         </View>
       </ScrollView>
 

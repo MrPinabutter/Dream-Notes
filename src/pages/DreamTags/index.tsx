@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { RectButton, ScrollView, TextInput } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import { StackActions, useNavigation } from '@react-navigation/native';
 
 import { Feather, Ionicons } from '@expo/vector-icons';
 
@@ -11,10 +11,11 @@ export default function DreamTags(){
   const [tag, setTag] = useState('')
   const [arrayTags, setArrayTags] = useState<string[]>([])
 
-  const { navigate }  = useNavigation()
+  const { dispatch, navigate }  = useNavigation()
+  const pushAction = StackActions.push('CreateDream')
 
   function handleNavigateToLanding() {
-    navigate('Landing')
+    dispatch(pushAction)
   }
 
   function handleNavigateToCreateDream() {

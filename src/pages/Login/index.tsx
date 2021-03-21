@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { LinearGradient } from 'expo-linear-gradient'
-import { RectButton, TextInput } from 'react-native-gesture-handler'
-import { useNavigation } from '@react-navigation/native'
+import { LinearGradient } from 'expo-linear-gradient';
+import { RectButton, TextInput } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import styles from './styles'
 
 export default function Landing(){
-  const { navigate } = useNavigation()
+  const [name, setName] = useState('');
+
+  const { navigate } = useNavigation();
+
   function handleNavigationToLanding(){
     navigate('Landing')
+  };
+
+  async function onSubmmit() {
+    await AsyncStorage.setItem("@NAME", name);
+    handleNavigationToLanding();
   }
 
   return(
@@ -26,8 +35,8 @@ export default function Landing(){
         <Text style={styles.label}>Dreamer</Text>
         <TextInput placeholder="Seu nome" style={styles.inputContainer}></TextInput>
       </View>
-      <RectButton style={styles.button} onPress={handleNavigationToLanding}>
-        <Text style={styles.buttonText}>Começar</Text>
+      <RectButton style={styles.button} onPress={onSubmmit}>
+        <Text style={styles.buttonText} >Começar</Text>
       </RectButton>
     </LinearGradient >
   )

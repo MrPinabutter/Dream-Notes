@@ -2,15 +2,16 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient'; 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, StackActions } from '@react-navigation/native';
 
 import { Feather } from '@expo/vector-icons';
 
 export default function PlusButton() {
-  const { navigate } = useNavigation()
+  const { dispatch } = useNavigation()
+  const pushAction = StackActions.push('DreamTags')
 
   function handleNavigationToCreateDreams(){
-    navigate('DreamTags')
+    dispatch(pushAction)
   }
 
   return (
