@@ -14,10 +14,11 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 45,
     borderRadius: 10,
-    backgroundColor: '#f5f5f5',
-    marginTop: 20,
+    backgroundColor: '#fff',
     paddingLeft: 20,
-    fontWeight: 'bold'
+    borderColor: '#4E14A8',
+    borderWidth: 0.4,
+    fontFamily: 'Poppins_300Light'
   }
 
 })

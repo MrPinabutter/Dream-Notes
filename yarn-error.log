@@ -1,30 +1,30 @@
 Arguments: 
-  /snap/node/3292/bin/node /snap/node/3292/bin/yarn.js add @expo-google-fonts/langar
+  /usr/bin/node /usr/local/bin/yarn add @expo-google-fonts/nutito
 
 PATH: 
-  /home/vitorafael/.zinit/polaris/sbin:/home/vitorafael/.zinit/polaris/bin:/home/vitorafael/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  /home/vitorafael/.zinit/polaris/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
 Yarn version: 
-  1.22.5
+  1.22.10
 
 Node version: 
-  12.19.0
+  10.19.0
 
 Platform: 
   linux x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@expo-google-fonts%2flangar: Not found
-      at Request.params.callback [as _callback] (/snap/node/3292/lib/cli.js:66988:18)
-      at Request.self.callback (/snap/node/3292/lib/cli.js:140749:22)
-      at Request.emit (events.js:314:20)
-      at Request.<anonymous> (/snap/node/3292/lib/cli.js:141721:10)
-      at Request.emit (events.js:314:20)
-      at IncomingMessage.<anonymous> (/snap/node/3292/lib/cli.js:141643:12)
-      at Object.onceWrapper (events.js:420:28)
-      at IncomingMessage.emit (events.js:326:22)
-      at endReadableNT (_stream_readable.js:1223:12)
-      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+  Error: https://registry.yarnpkg.com/@expo-google-fonts%2fnutito: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140662:22)
+      at Request.emit (events.js:198:13)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141634:10)
+      at Request.emit (events.js:198:13)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141556:12)
+      at Object.onceWrapper (events.js:286:20)
+      at IncomingMessage.emit (events.js:203:15)
+      at endReadableNT (_stream_readable.js:1145:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
 
 npm manifest: 
   {
@@ -37,12 +37,8 @@ npm manifest:
       "eject": "expo eject"
     },
     "dependencies": {
-      "@expo-google-fonts/autour-one": "^0.1.0",
-      "@expo-google-fonts/comfortaa": "^0.1.0",
-      "@expo-google-fonts/nanum-myeongjo": "^0.1.0",
-      "@expo-google-fonts/nanum-pen-script": "^0.1.0",
-      "@expo-google-fonts/patrick-hand": "^0.1.0",
       "@expo/vector-icons": "^10.2.1",
+      "@react-native-async-storage/async-storage": "^1.13.2",
       "@react-native-community/masked-view": "0.1.10",
       "@react-navigation/native": "^5.8.10",
       "@react-navigation/stack": "^5.12.8",
@@ -1082,31 +1078,6 @@ Lockfile:
     dependencies:
       "@types/hammerjs" "^2.0.36"
   
-  "@expo-google-fonts/autour-one@^0.1.0":
-    version "0.1.0"
-    resolved "https://registry.yarnpkg.com/@expo-google-fonts/autour-one/-/autour-one-0.1.0.tgz#a2e018da452baa6f6ebd9284654a13d11c5250bd"
-    integrity sha512-QcqWcDY10lb2ofIssh290En5bHssmuhUDsUaEBZE9u5d3dUBnL8GiRUN6MF4aXPPI70qyRFSIEnf6OKNYTO0/w==
-  
-  "@expo-google-fonts/comfortaa@^0.1.0":
-    version "0.1.0"
-    resolved "https://registry.yarnpkg.com/@expo-google-fonts/comfortaa/-/comfortaa-0.1.0.tgz#8321f87a42dc6bda420691354feb24eccb8b0668"
-    integrity sha512-DTvEiqFf2bjOgKMBqSWNIFweqw6DyzNQrLyzFeO5WGlNKET252nVju5fY8Ur/TInvKjhp4Sc59VLZyVrETrYLQ==
-  
-  "@expo-google-fonts/nanum-myeongjo@^0.1.0":
-    version "0.1.0"
-    resolved "https://registry.yarnpkg.com/@expo-google-fonts/nanum-myeongjo/-/nanum-myeongjo-0.1.0.tgz#fcc757b2f11958e883fe24bb9b7d7f8346b9e9cd"
-    integrity sha512-UGCtesq0kirkAvwvk59Z9LTQv/14gYyMAurIAVSkms9r2jI3pwO+FSPaMf2nr7yNNd0l5R6p3oxLD3yrRdZbag==
-  
-  "@expo-google-fonts/nanum-pen-script@^0.1.0":
-    version "0.1.0"
-    resolved "https://registry.yarnpkg.com/@expo-google-fonts/nanum-pen-script/-/nanum-pen-script-0.1.0.tgz#eb5b48993d783c33c0be4155bf0e6027cde2e596"
-    integrity sha512-z5mvljWaM/L/n94yPL6SqtS/0GZ1W8zsgh89h9TYyGOF7eJw/pxK2gxUKhNOh9M/8VBBwA9/Dg/n5KuWrnINwg==
-  
-  "@expo-google-fonts/patrick-hand@^0.1.0":
-    version "0.1.0"
-    resolved "https://registry.yarnpkg.com/@expo-google-fonts/patrick-hand/-/patrick-hand-0.1.0.tgz#74689352cc029ed3390b9dfa1bb7495f2b4d623c"
-    integrity sha512-6HnBeM0GpCnRg0+DT8nv+00plVPqSwv4PojfXOWVM/ddb18FdO66+Ow5AiOmvToAlNKve9YNDF76aNmPZArpdA==
-  
   "@expo/configure-splash-screen@0.2.0":
     version "0.2.0"
     resolved "https://registry.yarnpkg.com/@expo/configure-splash-screen/-/configure-splash-screen-0.2.0.tgz#84f9f71363259f16fd0073636a198c750a3cdd7c"
@@ -1228,6 +1199,13 @@ Lockfile:
       "@types/istanbul-reports" "^1.1.1"
       "@types/yargs" "^15.0.0"
       chalk "^3.0.0"
+  
+  "@react-native-async-storage/async-storage@^1.13.2":
+    version "1.13.2"
+    resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.13.2.tgz#649f78527f16cd5a87071a888219ef7a35ef5c79"
+    integrity sha512-isTDvUApRJPVWFxV15yrQSOGqarX7cIedq/y4N5yWSnotf68D9qvDEv1I7rCXhkBDi0u4OJt6GA9dksUT0D3wg==
+    dependencies:
+      deep-assign "^3.0.0"
   
   "@react-native-community/cli-debugger-ui@^4.13.1":
     version "4.13.1"

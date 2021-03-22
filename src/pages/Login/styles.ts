@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   logoText:{
     fontSize:48,
     color: '#B093C9',
-    fontFamily: 'Comfortaa_700Bold'
+    fontFamily: 'Nunito_700Bold'
   },
 
   button:{
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   buttonText:{
     color: 'white',
     fontSize: 24,
-    fontWeight: 'bold'
+    fontFamily: 'Poppins_700Bold'
   },
 
   inputContainer: {
@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     borderRadius:15,
     backgroundColor: '#f5f5f5',
     paddingLeft: 15,
-    fontFamily: 'Montserrat_400Regular'
+    fontFamily: 'Poppins_400Regular'
   }, 
 
   label:{
     fontSize: 24,
-    fontFamily: 'Montserrat_400Regular',
+    fontFamily: 'Poppins_500Medium',
     color: '#B093C9',
     marginLeft: '-45%',
     marginBottom: 10

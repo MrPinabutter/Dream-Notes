@@ -63,7 +63,7 @@ export default function Landing(){
   };
 
   return(
-    <View style={{backgroundColor: '#E5DAFC', height: '100%', alignItems: 'center'}}>
+    <View style={{backgroundColor: '#F5F1FD', height: '100%', alignItems: 'center'}}>
       <LinearGradient 
         style={styles.container}
         colors={['#4E14A8', '#8F27ED']}
@@ -76,6 +76,9 @@ export default function Landing(){
         </View>
         <Image source={cloud} style={{marginTop:'8%'}}></Image>
       </LinearGradient >
+      <View style={{width: '90%', marginTop: 20}}>
+        <Text style={{fontFamily: 'Poppins_700Bold', fontSize: 24, color: '#1D0235'}}>Seus sonhos</Text>
+      </View>
       <SearcBox/>
 
       <ScrollView showsVerticalScrollIndicator={false} style={{width: '100%'}}>
@@ -83,7 +86,7 @@ export default function Landing(){
           {dreams.map((dream: DreamProps) => {
             return <Note key={dream.title} title={dream.title} dream={dream.dreamText} />
           })}
-          <View style={{overflow: 'hidden', width: '40%', height: 260, marginHorizontal:10}} />
+          <View style={{overflow: 'hidden', width: '40%', height: 100, marginHorizontal:10}} />
         </View>
       </ScrollView>
 

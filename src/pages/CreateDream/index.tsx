@@ -89,7 +89,7 @@ export default function CreateDream() {
           {arrayTags.map((tag: string, idx: number) => {
             return(
               <View key={tag} style={styles.tag}>
-                <View style={{width:6, height: 6, backgroundColor: '#7F97B0', borderRadius: 10, marginRight: 5}} />
+                <View style={{width:6, height: 6, backgroundColor: '#3D3926', borderRadius: 10, marginRight: 5}} />
                 <Text style={styles.tagText}>{tag}</Text>
               </View>
             )

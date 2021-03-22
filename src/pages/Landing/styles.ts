@@ -18,19 +18,19 @@ const styles = StyleSheet.create({
   },
 
   date:{
-    fontFamily: 'Comfortaa_700Bold',
+    fontFamily: 'Nunito_400Regular',
     color: '#D8AFF4',
     fontSize: 24
   },
 
   textDate:{
-    fontFamily: 'Montserrat_400Regular',
+    fontFamily: 'Nunito_400Regular',
     marginTop:'6%',
     marginLeft: '5%',
   },
 
   registrados:{
-    fontFamily: 'Montserrat_400Regular',
+    fontFamily: 'Nunito_400Regular',
     color:'#A17AC5',
     fontSize: 14,
     fontWeight: '200',

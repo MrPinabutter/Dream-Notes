@@ -8,13 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo-google-fonts/autour-one": "^0.1.0",
-    "@expo-google-fonts/comfortaa": "^0.1.0",
-    "@expo-google-fonts/montserrat": "^0.1.0",
-    "@expo-google-fonts/nanum-myeongjo": "^0.1.0",
-    "@expo-google-fonts/nanum-pen-script": "^0.1.0",
-    "@expo-google-fonts/patrick-hand": "^0.1.0",
-    "@expo-google-fonts/roboto-slab": "^0.1.0",
+    "@expo-google-fonts/nunito": "^0.1.0",
+    "@expo-google-fonts/poppins": "^0.1.0",
     "@expo/vector-icons": "^10.2.1",
     "@react-native-async-storage/async-storage": "^1.13.2",
     "@react-native-community/masked-view": "0.1.10",
