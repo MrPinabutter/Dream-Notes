@@ -63,7 +63,7 @@ export default function Landing(){
   };
 
   return(
-    <View style={{backgroundColor: '#F5F1FD', height: '100%', alignItems: 'center'}}>
+    <View style={{backgroundColor: '#F2ECFF', height: '100%', alignItems: 'center'}}>
       <LinearGradient 
         style={styles.container}
         colors={['#4E14A8', '#8F27ED']}
@@ -84,7 +84,7 @@ export default function Landing(){
       <ScrollView showsVerticalScrollIndicator={false} style={{width: '100%'}}>
         <View style={styles.notesContainer}>
           {dreams.map((dream: DreamProps) => {
-            return <Note key={dream.title} title={dream.title} dream={dream.dreamText} />
+            return <Note key={dream.title} title={dream.title} dream={dream.dreamText} color1='#93CBEF' color2='#CBE4FB' />
           })}
           <View style={{overflow: 'hidden', width: '40%', height: 100, marginHorizontal:10}} />
         </View>

@@ -18,7 +18,7 @@ export default function Note({color1='#FF8675', color2='#FCA59C',...props}:NoteP
   const { navigate } = useNavigation()
 
   function handleNavigaionToDreamNote(){
-    navigate('DreamNote')
+    navigate('DreamNote', props)
   }
 
   return (
@@ -28,7 +28,7 @@ export default function Note({color1='#FF8675', color2='#FCA59C',...props}:NoteP
       start={{x:0,y:0}}
       end={{x:1,y:1}}
     >  
-      <RectButton style={{flex:1}}>
+      <RectButton style={{flex:1}} onPress={handleNavigaionToDreamNote}>
         <View style={{padding: 15, paddingTop: 8, overflow: 'hidden', height: 'auto'}}>
           { props.title 
           ?

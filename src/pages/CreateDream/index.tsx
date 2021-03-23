@@ -33,7 +33,7 @@ export default function CreateDream() {
     await AsyncStorage.getItem('@Dreams').then(dreams => {
       const d = dreams ? JSON.parse(dreams) : []
       console.log(d)      
-      d.push({title, dreamText, arrayTags})
+      d.unshift({title, dreamText, arrayTags})
       AsyncStorage.setItem('@Dreams', JSON.stringify(d))
     }).catch(e => console.log(e))
     handleNavigateToLanding()

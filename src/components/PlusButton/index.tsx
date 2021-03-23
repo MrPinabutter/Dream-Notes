@@ -15,9 +15,9 @@ export default function PlusButton() {
   }
 
   return (
-    <TouchableOpacity style={{width:'100%', height:'100%', borderRadius:40}} onPress={handleNavigationToCreateDreams}>
+    <TouchableOpacity style={{width:'100%', height:'100%', borderRadius:40, elevation: 3}} onPress={handleNavigationToCreateDreams}>
       <LinearGradient 
-        colors={['#4F09BA', '#9F34FF']} 
+        colors={['#6B1CC7', '#8748D2']} 
         start={{x:0,y:0}}
         end={{x:1,y:1}}
         style={styles.linear}
