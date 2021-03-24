@@ -7,38 +7,44 @@ import { RectButton } from 'react-native-gesture-handler';
 import styles from './styles';
 
 interface NoteProps {
-  title?: string
-  dream: string
-  tags?: Array<string>,
-  color1?: string,
-  color2?: string
+  dream: {
+    title?: string
+    dreamText: string
+    arrayTags?: Array<string>,
+  }
+  theme?: number
 }
 
-export default function Note({color1='#FF8675', color2='#FCA59C',...props}:NoteProps) {
+export default function Note({theme = 0, ...props}:NoteProps) {
   const { navigate } = useNavigation()
+  const themeColor = [
+    ['#FF8675', '#FCA59C']
+  ]
 
   function handleNavigaionToDreamNote(){
-    navigate('DreamNote', props)
+    console.log(props);
+    
+    navigate('DreamNote', {...props, theme})
   }
 
   return (
     <LinearGradient 
       style={styles.note}
-      colors={[color1, color2]}
+      colors={themeColor[theme]}
       start={{x:0,y:0}}
       end={{x:1,y:1}}
     >  
       <RectButton style={{flex:1}} onPress={handleNavigaionToDreamNote}>
         <View style={{padding: 15, paddingTop: 8, overflow: 'hidden', height: 'auto'}}>
-          { props.title 
+          { props.dream.title 
           ?
-            <Text style={{fontFamily: 'Nunito_700Bold', color: '#150326', fontSize: 18}}>{props.title}</Text>
+            <Text style={{fontFamily: 'Nunito_700Bold', color: '#150326', fontSize: 18}}>{props.dream.title}</Text>
           :
             <Text style={{fontFamily: 'Nunito_700Bold', color: '#150326', fontSize: 18}}>Titulo</Text>
           }
           
           <Text style={{fontFamily: 'Poppins_300Light', color: '#1A072C', fontSize: 14}}>
-            {props.dream}
+            {props.dream.dreamText}
           </Text>
         </View>
       </RectButton>

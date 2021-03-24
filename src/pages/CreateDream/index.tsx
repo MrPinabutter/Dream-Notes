@@ -8,8 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import styles from './styles'
 
 type ParamsProps = {
-  A: undefined,
-  B: {
+  CreateDream: {
     arrayTags: Array<string>
   } 
 }
@@ -18,7 +17,7 @@ export default function CreateDream() {
   const [title, setTitle] = useState('')
   const [dreamText, setDreamText] = useState('')
 
-  const route = useRoute<RouteProp<ParamsProps, 'B'>>()
+  const route = useRoute<RouteProp<ParamsProps, 'CreateDream'>>()
   const { params } = route
   const { arrayTags } = params
 
