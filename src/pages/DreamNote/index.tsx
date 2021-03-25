@@ -6,8 +6,8 @@ import { Feather } from '@expo/vector-icons';
 import cloud from '../../assets/images/cloud.png';
 
 import styles from './styles';
-import { ScrollView } from 'react-native-gesture-handler';
-import { useRoute, RouteProp } from '@react-navigation/native';
+import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 
 interface NoteProps {
   title?: string
@@ -23,36 +23,38 @@ type DreamNoteProps = {
 }
 
 export default function DreamNote() {
+  const { goBack } = useNavigation()
 
   const route = useRoute<RouteProp<DreamNoteProps, 'DreamNotes'>>()
   const { params } = route
-
-  const { arrayTags } = params.dream
+  const { arrayTags, dreamText, title } = params.dream
 
   return (
-    <View style={{flex: 1, backgroundColor: '#F2ECFF', alignItems: 'center'}}>
+    <View style={styles.container}>
       <LinearGradient 
-        style={styles.container}
+        style={styles.header}
         colors={['#4E14A8', '#8F27ED']}
         start={{x:0,y:0}}
         end={{x:1,y:1}}
       > 
-        <Feather name="chevron-left" size={32} style={{marginTop: 24, marginLeft: 10 }} color="white" />
-        <Image source={cloud} style={{marginTop:'8%', width: 90, height: 51}} />
+        <RectButton onPress={goBack} >
+          <Feather name="chevron-left" size={32} style={styles.backIcon} color="white" />
+        </RectButton>
+        <Image source={cloud} style={styles.image} />
       </LinearGradient >
-      <ScrollView contentContainerStyle={{alignItems: 'center', width: '100%'}} showsVerticalScrollIndicator={false}>
-        <View style={{marginTop: 30, width: Dimensions.get('screen').width*0.85, height: 'auto', minHeight: 300, backgroundColor: '#FFB775', borderRadius: 13}}>
-          <Text style={{fontFamily: 'Poppins_700Bold', fontSize: 24, marginHorizontal: 16, marginTop: 10}}>{params.dream.title}</Text>
-          <Text style={{fontFamily: 'Poppins_500Medium', fontSize: 16, marginHorizontal: 15, marginTop: 10, marginBottom: 20}}>{params.dream.dreamText}</Text>
+      <ScrollView contentContainerStyle={styles.scrollView} showsVerticalScrollIndicator={false}>
+        <View style={styles.dreamContainer}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.dreamText}>{dreamText}</Text>
         </View>
 
-        <View style={{width: Dimensions.get('screen').width*0.9, marginTop: 15}}>
-          <Text style={{fontFamily: 'Poppins_700Bold', fontSize: 24, marginHorizontal: 16, marginTop: 10}}>Tags</Text>
-          <View style={{marginTop: 5, flexDirection: 'row', flexWrap: 'wrap', width: Dimensions.get('screen').width*0.9, marginBottom: 80}}>
+        <View style={styles.contain}>
+          <Text style={styles.labelTag}>Tags</Text>
+          <View style={styles.tagContainer}>
             {arrayTags?.map((tag: string, idx: number) => {
               return(
                 <View key={tag} style={styles.tag}>
-                  <View style={{width:6, height: 6, borderRadius: 3, backgroundColor: '#543918', marginRight: 5}} />
+                  <View style={styles.dotTag} />
                   <Text style={styles.tagText}>{tag}</Text>
                 </View>
               )
