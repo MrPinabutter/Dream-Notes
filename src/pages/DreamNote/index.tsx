@@ -1,13 +1,15 @@
-import React from 'react';
-import { View, Text, Image, Dimensions } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
 
 import cloud from '../../assets/images/cloud.png';
 
 import styles from './styles';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import { RectButton, ScrollView, TextInput } from 'react-native-gesture-handler';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
+
+import pencilIcon from '../../assets/icons/pencilIcon.png';
 
 interface NoteProps {
   title?: string
@@ -23,11 +25,24 @@ type DreamNoteProps = {
 }
 
 export default function DreamNote() {
-  const { goBack } = useNavigation()
-
+  const [dreamNote, setDreamNote] = useState('');
+  const [dreamTitle, setDreamTitle] = useState('');
+  const [editMode, setEditMode] = useState(false);
+  
   const route = useRoute<RouteProp<DreamNoteProps, 'DreamNotes'>>()
   const { params } = route
   const { arrayTags, dreamText, title } = params.dream
+  
+  const { goBack } = useNavigation();
+
+  useEffect(() => {
+    setDreamNote(dreamText)
+    setDreamTitle(title || 'Title')
+  }, [])
+
+  function toggleEditMode() {
+    setEditMode(!editMode)
+  }
 
   return (
     <View style={styles.container}>
@@ -44,12 +59,32 @@ export default function DreamNote() {
       </LinearGradient >
       <ScrollView contentContainerStyle={styles.scrollView} showsVerticalScrollIndicator={false}>
         <View style={styles.dreamContainer}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.dreamText}>{dreamText}</Text>
+          <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
+            { editMode 
+              ?
+              <TextInput value={dreamTitle} multiline onChangeText={setDreamTitle} style={styles.title}/>
+              : 
+              <Text style={styles.title} >{dreamTitle}</Text>
+            }
+            <RectButton onPress={toggleEditMode} style={styles.editIcon}>
+              <Image source={pencilIcon} style={{width: 14, height: 14}} ></Image>
+            </RectButton>
+          </View>
+          { editMode
+            ?
+            <TextInput onChangeText={setDreamNote} value={dreamNote} multiline style={styles.dreamText} />
+            :
+            <Text style={styles.dreamText} >{dreamNote}</Text>
+          }
         </View>
 
         <View style={styles.contain}>
-          <Text style={styles.labelTag}>Tags</Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.labelTag}>Tags</Text>
+            <RectButton style={styles.editIcon}>
+              <Image source={pencilIcon} style={{width: 14, height: 14}} ></Image>
+            </RectButton>
+          </View>
           <View style={styles.tagContainer}>
             {arrayTags?.map((tag: string, idx: number) => {
               return(

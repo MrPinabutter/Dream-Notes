@@ -43,8 +43,21 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Poppins_700Bold', 
     fontSize: 24, 
-    marginHorizontal: 16, 
-    marginTop: 10
+    marginLeft: 16,
+    width: '80%',
+    marginTop: 10,
+  },
+
+  editIcon: {
+    marginTop: 12, 
+    marginRight: 16, 
+    width: 26, 
+    height: 26, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    backgroundColor: '#fff', 
+    borderRadius: 13, 
+    elevation: 3
   },
 
   dreamText: {
@@ -52,7 +65,8 @@ const styles = StyleSheet.create({
     fontSize: 16, 
     marginHorizontal: 15, 
     marginTop: 10, 
-    marginBottom: 20
+    marginBottom: 20,
+    height: 'auto'
   },
 
   contain: {

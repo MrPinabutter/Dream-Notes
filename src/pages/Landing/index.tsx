@@ -72,7 +72,7 @@ export default function Landing(){
       > 
         <View style={styles.textDate}>
           <Text style={styles.date}>Dia {new Date().getDate()}/{new Date().getMonth() + 1}</Text>
-          <Text style={styles.registrados}>Sonhos registrados: 4</Text>
+          <Text style={styles.registrados}>Sonhos registrados: {dreams.length}</Text>
         </View>
         <Image source={cloud} style={{marginTop:'8%'}}></Image>
       </LinearGradient >
@@ -83,8 +83,8 @@ export default function Landing(){
 
       <ScrollView showsVerticalScrollIndicator={false} style={{width: '100%'}}>
         <View style={styles.notesContainer}>
-          {dreams.map((dream: DreamProps) => {
-            return <Note key={dream.title} dream={dream}/>
+          {dreams.map((dream: DreamProps, idx: Number) => {
+            return <Note key={dream.title} dream={dream} id={idx}/>
           })}
           <View style={{overflow: 'hidden', width: '40%', height: 100, marginHorizontal:10}} />
         </View>

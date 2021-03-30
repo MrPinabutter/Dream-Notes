@@ -12,7 +12,8 @@ interface NoteProps {
     dreamText: string
     arrayTags?: Array<string>,
   }
-  theme?: number
+  theme?: number,
+  id: Number,
 }
 
 export default function Note({theme = 0, ...props}:NoteProps) {
@@ -34,7 +35,7 @@ export default function Note({theme = 0, ...props}:NoteProps) {
       start={{x:0,y:0}}
       end={{x:1,y:1}}
     >  
-      <RectButton style={{flex:1}} onPress={handleNavigaionToDreamNote}>
+      <RectButton style={{flex:1, paddingBottom: 20, overflow: 'hidden'}} onPress={handleNavigaionToDreamNote}>
         <View style={{padding: 15, paddingTop: 8, overflow: 'hidden', height: 'auto'}}>
           { props.dream.title 
           ?
