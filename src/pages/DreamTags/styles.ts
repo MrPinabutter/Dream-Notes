@@ -17,19 +17,19 @@ const styles = StyleSheet.create({
   },
 
   headerText:{
-    fontFamily: 'Comfortaa_700Bold', 
+    fontFamily: 'Poppins_700Bold', 
     fontSize: 24, 
     color: '#5E4278'
   },
 
   infoText: {
-    fontFamily: 'Montserrat_400Regular', 
+    fontFamily: 'Nunito_400Regular', 
     fontSize: 18, 
     color: '#9166B8'
   },
 
   spanText: {
-    fontFamily: 'Montserrat_400Regular', 
+    fontFamily: 'Nunito_400Regular', 
     fontSize: 14, 
     color: '#AC88CC', 
     marginTop: 5
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     borderRadius: 12, 
     paddingHorizontal: 15, 
     marginRight: 10,
-    fontFamily: 'Montserrat_400Regular'
+    fontFamily: 'Poppins_400Regular'
   },
 
   addTagsButton: {
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
 
   plusText: {
-    fontFamily: 'Comfortaa_700Bold', 
+    fontFamily: 'Nunito_700Bold', 
     fontSize: 44, 
     color: '#fff', 
     marginTop: -10
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
 
   continueText: {
-    fontFamily: 'Comfortaa_700Bold',
+    fontFamily: 'Poppins_700Bold',
     fontSize: 24, 
     color: '#fff'
   },
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   },
 
   tagText: {
-    fontFamily: 'RobotoSlab_400Regular',
+    fontFamily: 'Poppins_500Medium',
     fontSize: 14,
     color: '#222',
     marginRight: 5

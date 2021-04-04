@@ -72,6 +72,17 @@ const styles = StyleSheet.create({
     elevation: 3
   },
 
+  xIcon: {
+    marginTop: 12, 
+    width: 26, 
+    height: 26, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    backgroundColor: '#fff', 
+    borderRadius: 13, 
+    elevation: 3
+  },
+
   iconsContainer: {
     marginTop: 12, 
     marginRight: 16, 

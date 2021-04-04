@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
   },
 
   headerText:{
-    fontFamily: 'Comfortaa_700Bold', 
+    fontFamily: 'Poppins_700Bold', 
     fontSize: 24, 
     color: '#5E4278'
   },
 
   titleText: {
-    fontFamily: 'Montserrat_400Regular', 
+    fontFamily: 'Nunito_700Bold', 
     fontSize: 18, 
     color: '#9166B8'
   },
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     borderRadius: 15, 
     marginBottom: 15,
     padding: 15,
-    fontFamily: 'AutourOne_400Regular'
+    fontFamily: 'Nunito_400Regular'
   },
 
   dreamText:{
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     padding: 15,
     flexDirection: 'column',
     textAlignVertical: 'top',
-    fontFamily: 'RobotoSlab_400Regular',
+    fontFamily: 'Poppins_400Regular',
   },
 
   tag: {
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
 
   tagText: {
-    fontFamily: 'RobotoSlab_400Regular',
+    fontFamily: 'Poppins_500Medium',
     fontSize: 14,
     color: '#333',
     marginRight: 5
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
 
   continueText: {
-    fontFamily: 'Comfortaa_700Bold',
+    fontFamily: 'Poppins_700Bold',
     fontSize: 24, 
     color: '#fff'
   },

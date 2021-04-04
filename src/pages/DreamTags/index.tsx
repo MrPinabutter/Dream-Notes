@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { RectButton, ScrollView, TextInput } from 'react-native-gesture-handler';
 import { StackActions, useNavigation } from '@react-navigation/native';
 
@@ -8,15 +8,11 @@ import { Feather, Ionicons } from '@expo/vector-icons';
 import styles from './styles'
 
 export default function DreamTags(){
-  const [tag, setTag] = useState('')
-  const [arrayTags, setArrayTags] = useState<string[]>([])
+  const [tag, setTag] = useState('');
+  const [arrayTags, setArrayTags] = useState<string[]>([]);
 
-  const { dispatch, navigate }  = useNavigation()
-  const pushAction = StackActions.push('CreateDream')
-
-  function handleNavigateToLanding() {
-    dispatch(pushAction)
-  }
+  const { navigate, dispatch }  = useNavigation();
+  const pushAction = StackActions.push('Landing')
 
   function handleNavigateToCreateDream() {
     navigate('CreateDream', {arrayTags})
@@ -44,11 +40,11 @@ export default function DreamTags(){
   return(
     <View style={styles.container}>
       <View style={styles.header}>
-        <RectButton
-          onPress={handleNavigateToLanding}
+        <TouchableOpacity activeOpacity={0.5}
+          onPress={() => dispatch(pushAction)}
         >
           <Feather name="chevron-left" size={32} color="#AC88CC" />
-        </RectButton>
+        </TouchableOpacity>
         <Text style={styles.headerText}>
           Primeiro passo
         </Text>

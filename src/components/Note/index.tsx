@@ -23,9 +23,7 @@ export default function Note({theme = 0, ...props}:NoteProps) {
   ]
 
   function handleNavigaionToDreamNote(){
-    console.log(props);
-    
-    navigate('DreamNote', {...props, theme})
+    navigate('DreamNote', {...props, theme, id: props.id})
   }
 
   return (

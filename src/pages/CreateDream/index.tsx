@@ -31,15 +31,18 @@ export default function CreateDream() {
   async function handleSaveDream() {
     await AsyncStorage.getItem('@Dreams').then(dreams => {
       const d = dreams ? JSON.parse(dreams) : []
-      console.log(d)      
-      d.unshift({title, dreamText, arrayTags})
-      AsyncStorage.setItem('@Dreams', JSON.stringify(d))
-    }).catch(e => console.log(e))
-    handleNavigateToLanding()
+      d.unshift({title, dreamText, arrayTags});
+      AsyncStorage.setItem('@Dreams', JSON.stringify(d));
+    }).catch(e => console.log(e));
+
+    setTitle('');
+    setDreamText('');
+
+    handleNavigateToLanding();
   }
 
 
-  const { goBack } = useNavigation()
+  const { goBack } = useNavigation();
 
   function handleGoDreamTags() {
     goBack()
