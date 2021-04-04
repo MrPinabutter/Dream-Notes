@@ -5,6 +5,8 @@ import { Feather } from '@expo/vector-icons';
 
 import cloud from '../../assets/images/cloud.png';
 import check from '../../assets/icons/check.png';
+import trash from '../../assets/icons/trash.png';
+import x from '../../assets/icons/x.png';
 
 import styles from './styles';
 import { RectButton, ScrollView, TextInput } from 'react-native-gesture-handler';
@@ -45,6 +47,12 @@ export default function DreamNote() {
     setEditMode(!editMode)
   }
 
+  function handleSaveDream() {
+    // Save on async storage using 
+    
+    toggleEditMode();
+  }
+
   return (
     <View style={styles.container}>
       <LinearGradient 
@@ -67,9 +75,17 @@ export default function DreamNote() {
               : 
               <Text style={styles.title} >{dreamTitle}</Text>
             }
-            <RectButton onPress={toggleEditMode} style={styles.editIcon}>
-              <Image source={pencilIcon} style={{width: 14, height: 14}} ></Image>
-            </RectButton>
+            {editMode
+            ?
+              <RectButton onPress={toggleEditMode} style={styles.trashIcon}>
+                <Image source={trash} style={{width: 14, height: 14}} ></Image>
+              </RectButton>
+            :
+              <RectButton onPress={toggleEditMode} style={styles.editIcon}>
+                <Image source={pencilIcon} style={{width: 14, height: 14}} ></Image>
+              </RectButton>
+            
+            }
           </View>
           { editMode
             ?
@@ -98,13 +114,10 @@ export default function DreamNote() {
         </View>
         </View>
       </ScrollView>
-      {editMode
-      ? 
-      <RectButton style={styles.confirmChangeButton}>
-        <Image source={check} style={{width: 30, height: 30}} />
+      {editMode && 
+        <RectButton onPress={handleSaveDream} style={styles.confirmChangeButton}>
+          <Image source={check} style={{width: 30, height: 30}} />
       </RectButton>
-      :
-      <></>
       }
     </View>
   )

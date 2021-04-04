@@ -60,6 +60,26 @@ const styles = StyleSheet.create({
     elevation: 3
   },
 
+  trashIcon: {
+    marginTop: 12, 
+    marginRight: 16, 
+    width: 26, 
+    height: 26, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    backgroundColor: '#FF5454', 
+    borderRadius: 13, 
+    elevation: 3
+  },
+
+  iconsContainer: {
+    marginTop: 12, 
+    marginRight: 16, 
+    width: 26, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+  },
+
   dreamText: {
     fontFamily: 'Poppins_300Light', 
     fontSize: 16, 
