@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontFamily: 'Poppins_700Bold', 
-    fontSize: 24, 
     marginLeft: 16,
     width: '80%',
     marginTop: 10,
+    fontFamily: 'Poppins_500Medium',
+    fontSize: 24, 
   },
 
   editIcon: {
@@ -61,12 +61,13 @@ const styles = StyleSheet.create({
   },
 
   dreamText: {
-    fontFamily: 'Poppins_500Medium', 
+    fontFamily: 'Poppins_300Light', 
     fontSize: 16, 
     marginHorizontal: 15, 
     marginTop: 10, 
     marginBottom: 20,
-    height: 'auto'
+    includeFontPadding: false,
+    paddingVertical: 0
   },
 
   contain: {
@@ -78,12 +79,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins_700Bold', 
     fontSize: 24, 
     marginHorizontal: 16, 
-    marginTop: 10
+    marginTop: 10,
   },
 
   tagContainer: {
     width: Dimensions.get('screen').width*0.9, 
-    marginTop: 5, 
+    marginTop: 8, 
     flexDirection: 'row', 
     flexWrap: 'wrap', 
     marginBottom: 80
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', 
     marginLeft: 10, 
     marginBottom: 14,
-    elevation: 4
+    elevation: 5
   },
 
   removeTag: {
@@ -127,6 +128,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#543918', 
     marginRight: 5
   },
+
+  confirmChangeButton: {
+    position: 'absolute', 
+    top: Dimensions.get('screen').height *0.85, 
+    left: Dimensions.get('screen').width * 0.9 - 60, 
+    elevation: 4, backgroundColor: '#60E18F', 
+    borderRadius: 100,
+    width: 80, 
+    height: 80, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+  }
 })
 
 export default styles;

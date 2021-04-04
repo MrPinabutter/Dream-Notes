@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
 
 import cloud from '../../assets/images/cloud.png';
+import check from '../../assets/icons/check.png';
 
 import styles from './styles';
 import { RectButton, ScrollView, TextInput } from 'react-native-gesture-handler';
@@ -72,14 +73,14 @@ export default function DreamNote() {
           </View>
           { editMode
             ?
-            <TextInput onChangeText={setDreamNote} value={dreamNote} multiline style={styles.dreamText} />
+            <TextInput onChangeText={setDreamNote} autoFocus value={dreamNote} multiline scrollEnabled style={styles.dreamText} />
             :
             <Text style={styles.dreamText} >{dreamNote}</Text>
           }
         </View>
 
         <View style={styles.contain}>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Text style={styles.labelTag}>Tags</Text>
             <RectButton style={styles.editIcon}>
               <Image source={pencilIcon} style={{width: 14, height: 14}} ></Image>
@@ -97,6 +98,14 @@ export default function DreamNote() {
         </View>
         </View>
       </ScrollView>
+      {editMode
+      ? 
+      <RectButton style={styles.confirmChangeButton}>
+        <Image source={check} style={{width: 30, height: 30}} />
+      </RectButton>
+      :
+      <></>
+      }
     </View>
   )
 }

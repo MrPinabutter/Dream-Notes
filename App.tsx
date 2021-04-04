@@ -13,7 +13,7 @@ export default function App() {
     Poppins_500Medium,
     Nunito_700Bold,
     Nunito_400Regular,
-    Poppins_300Light
+    Poppins_300Light,
   });
 
   if (!fontsLoaded) {
