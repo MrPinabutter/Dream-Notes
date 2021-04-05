@@ -35,35 +35,41 @@ export default function DreamNote() {
   const [editMode, setEditMode] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   
-  const [dreams, setDreams] = useState([]);
+  const [dreams, setDreams] = useState([{}]);
 
   const route = useRoute<RouteProp<DreamNoteProps, 'DreamNotes'>>()
   const { params } = route
-  const { arrayTags, dreamText, title } = params.dream
+
+  const [tags, setTags] = useState(['']);
+  const [tag, setTag] = useState('');
   
-  const { dispatch, goBack } = useNavigation();
+  
+  const { dispatch } = useNavigation();
   const goLanding = StackActions.push('Landing')
   
   useEffect(() => {
-    setDreamNote(dreamText)
-    setDreamTitle(title || 'Title')
     async function getDream(){
       await AsyncStorage.getItem('@Dreams').then(dreams => {
-        const d = dreams ? JSON.parse(dreams) : []
+        const d = dreams ? JSON.parse(dreams) : [{}]
         setDreams(d);
+        
+        setDreamTitle(d[params.id].title || 'Title')
+        setDreamNote(d[params.id].dreamText)
+        setTags(d[params.id].arrayTags)
         AsyncStorage.setItem('@Dreams', JSON.stringify(d))
       }).catch(e => console.log(e))
     } 
-
+    
     getDream()
-  }, [])
+  }, [params])
 
   function toggleEditMode() {
     setEditMode(!editMode)
   }
 
-  function handleSaveDream() {
-    // Save on async storage using 
+  async function handleSaveDream() {
+    dreams[params.id] = {...dreams[params.id], title: dreamTitle, dreamText:dreamNote}
+    await AsyncStorage.setItem('@Dreams', JSON.stringify(dreams))
     
     toggleEditMode();
   }
@@ -74,6 +80,32 @@ export default function DreamNote() {
     dispatch(goLanding);
   }
 
+  function addTag(newTag: string) {
+    let ver = true
+    if(newTag == '') { ver = false }
+
+    tags.forEach(tagAtual => {
+      if(newTag === tagAtual) { ver = false }
+    })
+    if(ver == true) {
+      setTags([...tags, newTag])
+      setTag('')
+    }
+  }
+
+  function removeTag(idx: number){
+    const itensCopy = Array.from(tags);
+    itensCopy.splice(idx, 1);
+    setTags(itensCopy);
+  }
+
+  async function handleSaveTags() {
+    dreams[params.id] = {...dreams[params.id], arrayTags: tags}
+    await AsyncStorage.setItem('@Dreams', JSON.stringify(dreams))
+
+    setModalVisible(false);
+  }
+
   return (
     <View style={styles.container}>
       <LinearGradient 
@@ -82,7 +114,7 @@ export default function DreamNote() {
         start={{x:0,y:0}}
         end={{x:1,y:1}}
       > 
-        <RectButton onPress={goBack} >
+        <RectButton onPress={() => dispatch(goLanding)} >
           <Feather name="chevron-left" size={32} style={styles.backIcon} color="white" />
         </RectButton>
         <Image source={cloud} style={styles.image} />
@@ -124,11 +156,11 @@ export default function DreamNote() {
             </RectButton>
           </View>
           <View style={styles.tagContainer}>
-            {arrayTags?.map((tag: string, idx: number) => {
+            {tags.map((tag: string, idx: number) => {
               return(
                 <View key={tag} style={styles.tag}>
-                  <View style={styles.dotTag} />
                   <Text style={styles.tagText}>{tag}</Text>
+                  <View style={styles.dotTag} />
                 </View>
               )
             })}
@@ -158,25 +190,25 @@ export default function DreamNote() {
             </View>
 
             <View style={{width: '100%', flexDirection: 'row', marginBottom: 15}}>
-              <TextInput placeholder="Sua tag" style={{flex: 9, padding: 12, backgroundColor: '#FBFBFB', height: 42, borderRadius: 8, marginHorizontal: 18 }} />
-              <RectButton style={{flex: 2, height: 42, borderRadius: 8, backgroundColor: '#7923C7', elevation: 5, marginRight: 18, justifyContent: 'center', alignItems: 'center'}}>
+              <TextInput maxLength={25} value={tag} onChangeText={setTag} placeholder="Sua tag" style={{flex: 9, padding: 12, backgroundColor: '#FBFBFB', height: 42, borderRadius: 8, marginHorizontal: 18 }} />
+              <TouchableOpacity onPress={() => addTag(tag)} style={{flex: 2, height: 42, borderRadius: 8, backgroundColor: '#7923C7', elevation: 5, marginRight: 18, justifyContent: 'center', alignItems: 'center'}}>
                 <AntDesign name="plus" size={24} color="#fff" />
-              </RectButton>
+              </TouchableOpacity>
             </View>
-            <View style={{width: '95%', flexDirection: 'row', marginBottom: 10}}>
-              {arrayTags.map((tag, idx) => {
+            <View style={{width: '95%', flexDirection: 'row', marginBottom: 10, flexWrap: 'wrap'}}>
+              {tags.map((tag, idx) => {
               return(
                 <View key={tag} style={styles.tag}>
                   <Text style={styles.tagText}>{tag}</Text>
-                  <RectButton style={{width:20, height:20, alignItems: 'center', justifyContent: 'center'}} onPress={() => { }}>
+                  <TouchableOpacity style={{width:20, height:20, alignItems: 'center', justifyContent: 'center'}} onPress={() => removeTag(idx) }>
                     <Ionicons name="ios-close" size={24} color="#555" />
-                  </RectButton>
+                  </TouchableOpacity>
                 </View>
               )
             })}
             </View>
  
-            <TouchableOpacity activeOpacity={0.9} onPress={() => setModalVisible(false)} style={{width: '90%', backgroundColor: '#60E18F', height: 55, borderRadius: 8, elevation: 5, justifyContent: 'center', alignItems: 'center', marginBottom: 30}}>
+            <TouchableOpacity activeOpacity={0.9} onPress={handleSaveTags} style={{width: '90%', backgroundColor: '#60E18F', height: 55, borderRadius: 8, elevation: 5, justifyContent: 'center', alignItems: 'center', marginBottom: 30}}>
               <Text style={{fontFamily: 'Poppins_700Bold', fontSize: 24, color: '#FEFEFF'}}> Continuar </Text>
             </TouchableOpacity>
           </View>

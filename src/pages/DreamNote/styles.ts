@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
 
   tagContainer: {
-    width: Dimensions.get('screen').width*0.9, 
+    width: Dimensions.get('screen').width*0.8, 
     marginTop: 8, 
     flexDirection: 'row', 
     flexWrap: 'wrap', 
@@ -153,10 +153,10 @@ const styles = StyleSheet.create({
   },
 
   dotTag: {
-    width:6, 
-    height: 6, 
+    width:5, 
+    height: 5, 
     borderRadius: 3, 
-    backgroundColor: '#543918', 
+    // backgroundColor: '#000', 
     marginRight: 5
   },
 

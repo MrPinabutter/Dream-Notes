@@ -36,7 +36,6 @@ export default function Landing(){
   async function GetDreams() {
     const item = await AsyncStorage.getItem("@Dreams");
     const value = item ? JSON.parse(item) : [];
-    console.log(value);
     
     setDreams(value);
     setLoading(false);

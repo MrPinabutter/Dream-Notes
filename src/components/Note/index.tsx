@@ -1,8 +1,9 @@
-import { useNavigation } from '@react-navigation/native';
+import { StackActions, useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
+import { NavigationActions } from 'react-navigation';
 
 import styles from './styles';
 
@@ -17,13 +18,15 @@ interface NoteProps {
 }
 
 export default function Note({theme = 0, ...props}:NoteProps) {
-  const { navigate } = useNavigation()
+  const { navigate, dispatch } = useNavigation()
   const themeColor = [
     ['#FF8675', '#FCA59C']
   ]
 
+  const navigateAction = StackActions.push('DreamNote', {...props, theme, id: props.id});
+
   function handleNavigaionToDreamNote(){
-    navigate('DreamNote', {...props, theme, id: props.id})
+    dispatch(navigateAction)
   }
 
   return (
