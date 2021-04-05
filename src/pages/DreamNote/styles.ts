@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('screen').width*0.85, 
     height: 'auto', 
     minHeight: 300, 
-    backgroundColor: '#FFB775', 
+    backgroundColor: '#D6BFF8', 
     borderRadius: 13
   },
 

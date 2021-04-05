@@ -17,27 +17,27 @@ function AppStack() {
   useEffect(() => {
     async function getName() {
       const name = await AsyncStorage.getItem("@NAME")
-      if(!name){
+      if(name){
         setFirstEnter(false)
       }
     }
     getName()
-  }, [])
+  }, [isFirstEnter])
 
   return (
     <NavigationContainer>
       <Navigator screenOptions={{ headerShown: false }}>
-        {isFirstEnter 
+        {/* {isFirstEnter 
         ?
         <Screen name="Login" component={Login} />
         :
-        <>
-        <Screen name="Landing" component={Landing} />
+        <> */}
+          <Screen name="Landing" component={Landing} />
           <Screen name="DreamTags" component={DreamTags} />
           <Screen name="CreateDream" component={CreateDream} />
           <Screen name="DreamNote" component={DreamNote} />
-        </>
-        }
+        {/* </>
+        } */}
       </Navigator>
     </NavigationContainer> 
   );

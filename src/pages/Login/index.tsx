@@ -10,15 +10,8 @@ import styles from './styles'
 export default function Landing(){
   const [name, setName] = useState('');
 
-  const { navigate } = useNavigation();
-
-  function handleNavigationToLanding(){
-    navigate('Landing')
-  };
-
   async function onSubmmit() {
     await AsyncStorage.setItem("@NAME", name);
-    handleNavigationToLanding();
   }
 
   return(
@@ -33,7 +26,7 @@ export default function Landing(){
       </View>
       <View style={{width:'100%', alignItems:'center'}}>
         <Text style={styles.label}>Dreamer</Text>
-        <TextInput placeholder="Seu nome" style={styles.inputContainer}></TextInput>
+        <TextInput placeholder="Seu nome" value={name} onChangeText={setName} style={styles.inputContainer}></TextInput>
       </View>
       <RectButton style={styles.button} onPress={onSubmmit}>
         <Text style={styles.buttonText} >Começar</Text>

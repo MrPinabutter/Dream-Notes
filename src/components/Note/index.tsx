@@ -20,7 +20,7 @@ interface NoteProps {
 export default function Note({theme = 0, ...props}:NoteProps) {
   const { navigate, dispatch } = useNavigation()
   const themeColor = [
-    ['#FF8675', '#FCA59C']
+    ['#B189EB', '#CDB0F6']
   ]
 
   const navigateAction = StackActions.push('DreamNote', {...props, theme, id: props.id});

@@ -5,7 +5,7 @@ import { TextInput } from 'react-native-gesture-handler';
 
 export default function SearcBox() {
   return(
-    <TextInput style={styles.box} placeholder="Ainda vou habilitar a pesquisa"/>
+    <TextInput style={styles.box} placeholder="Ainda vou habilitar a pesquisa de sonhos"/>
   );
 }
 

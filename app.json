@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "dream-notes",
+    "name": "DreamCatcher",
     "slug": "dream-notes",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#4E14A8"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.vitorafael.dreamnote"
     },
     "web": {
       "favicon": "./assets/favicon.png"
