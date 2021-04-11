@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import { View, Text, Image, Modal, TouchableOpacity, BackHandler } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign, Feather, Ionicons } from '@expo/vector-icons';
@@ -44,12 +44,13 @@ export default function DreamNote() {
   const [tag, setTag] = useState('');
   
   
-  const { dispatch, navigate } = useNavigation();
+  const { dispatch } = useNavigation();
   const goLanding = StackActions.push('Landing');
   const goBack = StackActions.pop();
 
   const goBackward = () => {
-    dispatch(goBack);
+    dispatch(goLanding);
+    // goBack()
     return true;
   };
 
