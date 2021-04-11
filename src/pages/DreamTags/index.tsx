@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity, BackHandler } from 'react-native';
 import { RectButton, ScrollView, TextInput } from 'react-native-gesture-handler';
 import { StackActions, useNavigation } from '@react-navigation/native';
 
@@ -13,6 +13,17 @@ export default function DreamTags(){
 
   const { navigate, dispatch }  = useNavigation();
   const pushAction = StackActions.push('Landing')
+  const goBack = StackActions.pop();
+
+  const goBackward = () => {
+    dispatch(goBack);
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', goBackward);
+    return () => BackHandler.removeEventListener("hardwareBackPress", goBackward);
+  }, [])
 
   function handleNavigateToCreateDream() {
     navigate('CreateDream', {arrayTags})

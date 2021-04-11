@@ -1,7 +1,7 @@
 import { Feather } from '@expo/vector-icons';
 import { RouteProp, useNavigation, useRoute, StackActions } from '@react-navigation/native';
-import React, { useState } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, ScrollView, BackHandler } from 'react-native';
 import { RectButton, TextInput } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -23,7 +23,18 @@ export default function CreateDream() {
 
   const { dispatch } = useNavigation()
   const pushAction = StackActions.push('Landing')
+  const goBackHardware = StackActions.pop();
 
+  const goBackward = () => {
+    dispatch(goBackHardware);
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', goBackward);
+    return () => BackHandler.removeEventListener("hardwareBackPress", goBackward);
+  }, [])
+  
   function handleNavigateToLanding(){ 
     dispatch(pushAction)
   }

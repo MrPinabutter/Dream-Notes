@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, ScrollView, Keyboard } from 'react-native';
+import { View, Text, Image, ScrollView, Keyboard, BackHandler } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import cloud from '../../assets/images/cloud.png';
@@ -11,6 +11,7 @@ import Note from '../../components/Note';
 import styles from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppLoading } from 'expo';
+import { StackActions, useNavigation } from '@react-navigation/native';
 
 interface DreamProps{
   arrayTags: Array<string>;
@@ -23,6 +24,10 @@ export default function Landing(){
   const [isLoading, setLoading] = useState(true);
   const [dreams, setDreams] = useState([]);
 
+  const { dispatch } = useNavigation();
+  const goBack = StackActions.pop();
+
+
   useEffect(() => {
     Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
     Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
@@ -32,6 +37,19 @@ export default function Landing(){
       Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
     };
   }, []);
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', () => {
+      BackHandler.exitApp()
+      return true;
+    });
+    
+    return () => BackHandler.removeEventListener("hardwareBackPress", () => {
+      BackHandler.exitApp()
+      return true;
+    });
+  
+  }, [])
 
   async function GetDreams() {
     const item = await AsyncStorage.getItem("@Dreams");

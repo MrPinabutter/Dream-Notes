@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, Modal, TouchableOpacity } from 'react-native';
+import { View, Text, Image, Modal, TouchableOpacity, BackHandler } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign, Feather, Ionicons } from '@expo/vector-icons';
 
@@ -44,8 +44,19 @@ export default function DreamNote() {
   const [tag, setTag] = useState('');
   
   
-  const { dispatch } = useNavigation();
-  const goLanding = StackActions.push('Landing')
+  const { dispatch, navigate } = useNavigation();
+  const goLanding = StackActions.push('Landing');
+  const goBack = StackActions.pop();
+
+  const goBackward = () => {
+    dispatch(goBack);
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', goBackward);
+    return () => BackHandler.removeEventListener("hardwareBackPress", goBackward);
+  }, [])
   
   useEffect(() => {
     async function getDream(){
