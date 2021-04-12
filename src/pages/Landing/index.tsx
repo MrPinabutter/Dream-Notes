@@ -11,7 +11,7 @@ import Note from '../../components/Note';
 import styles from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AppLoading } from 'expo';
-import { StackActions, useNavigation } from '@react-navigation/native';
+import { useRoute, RouteProp, useIsFocused } from '@react-navigation/native';
 
 interface DreamProps{
   arrayTags: Array<string>;
@@ -19,14 +19,20 @@ interface DreamProps{
   dreamText: string;
 }
 
-export default function Landing(){
+
+type ParamList = {
+  Landing?: {
+    load: boolean
+  };
+};
+
+
+export default function Landing({route}: any){
   const [focused, setFocused] = useState(true);
   const [isLoading, setLoading] = useState(true);
   const [dreams, setDreams] = useState([]);
-
-  const { dispatch } = useNavigation();
-  const goBack = StackActions.pop();
-
+  
+  const isFocused = useIsFocused();
 
   useEffect(() => {
     Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
@@ -60,7 +66,7 @@ export default function Landing(){
 
   useEffect(() => {
     GetDreams();
-  }, []);
+  }, [isFocused]);
 
   const _keyboardDidShow = () => {
     setFocused(false);

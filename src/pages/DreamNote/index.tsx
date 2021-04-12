@@ -9,7 +9,7 @@ import trash from '../../assets/icons/trash.png';
 import x from '../../assets/icons/x.png';
 
 import styles from './styles';
-import { RectButton, ScrollView, TextInput, TouchableHighlight } from 'react-native-gesture-handler';
+import { RectButton, ScrollView, TextInput } from 'react-native-gesture-handler';
 import { useRoute, RouteProp, useNavigation, StackActions } from '@react-navigation/native';
 
 import pencilIcon from '../../assets/icons/pencilIcon.png';
@@ -44,13 +44,15 @@ export default function DreamNote() {
   const [tag, setTag] = useState('');
   
   
-  const { dispatch } = useNavigation();
-  const goLanding = StackActions.push('Landing');
-  const goBack = StackActions.pop();
+  const { dispatch, goBack } = useNavigation();
+  const goLanding = StackActions.pop();
 
   const goBackward = () => {
-    dispatch(goLanding);
-    // goBack()
+    goBack()
+    // reset({
+    //   index: 0,
+    //   actions: [NavigationActions.navigate({ routeName: 'Landing' })],
+    // })
     return true;
   };
 
@@ -126,7 +128,7 @@ export default function DreamNote() {
         start={{x:0,y:0}}
         end={{x:1,y:1}}
       > 
-        <RectButton onPress={() => dispatch(goLanding)} >
+        <RectButton onPress={goBack} >
           <Feather name="chevron-left" size={32} style={styles.backIcon} color="white" />
         </RectButton>
         <Image source={cloud} style={styles.image} />
