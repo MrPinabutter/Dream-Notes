@@ -40,6 +40,11 @@ const styles = StyleSheet.create({
     borderRadius: 13
   },
 
+  dreamContent: {
+    justifyContent: 'space-between', 
+    flexDirection: 'row'
+  },
+
   title: {
     marginLeft: 16,
     width: '80%',
@@ -170,6 +175,159 @@ const styles = StyleSheet.create({
     height: 80, 
     justifyContent: 'center', 
     alignItems: 'center'
+  },
+
+  modal: {
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+
+  editTagModalContainer: {
+    width: '85%', 
+    backgroundColor: '#E5DAFC', 
+    borderRadius: 8, 
+    alignItems: 'center'
+  },
+
+  editModalContent: {
+    width: '90%', 
+    flexDirection: 'row', 
+    justifyContent: 'space-between'
+  },
+
+  addTagContainer: {
+    width: '100%', 
+    flexDirection: 'row', 
+    marginBottom: 15
+  },
+
+  addTagInput: {
+    flex: 9, 
+    padding: 12, 
+    backgroundColor: '#FBFBFB', 
+    height: 42, 
+    borderRadius: 8, 
+    marginHorizontal: 18
+  },
+
+  addTag: {
+    flex: 2, 
+    height: 42, 
+    borderRadius: 8, 
+    backgroundColor: '#7923C7', 
+    elevation: 5, 
+    marginRight: 18, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+
+  tagEditContainer: {
+    width: '95%', 
+    flexDirection: 'row', 
+    marginBottom: 10, 
+    flexWrap: 'wrap'
+  },
+
+  editTagTitle: {
+    fontFamily: 'Poppins_700Bold', 
+    fontSize: 24, 
+    marginTop: 10
+  },
+
+  closeModalEditTag: {
+    width:20, 
+    height:20, 
+    alignItems: 'center', 
+    justifyContent: 'center'
+  },
+
+  confirmTagEdit: {
+    width: '90%', 
+    backgroundColor: '#60E18F', 
+    height: 55, 
+    borderRadius: 8, 
+    elevation: 5, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    marginBottom: 30
+  },
+
+  confirmTagEditText: {
+    fontFamily: 'Poppins_700Bold', 
+    fontSize: 24, 
+    color: '#FEFEFF'
+  },
+  
+  modalContainer: {
+    flex: 1, 
+    width: '100%',
+    justifyContent: 'center', 
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.6);'
+  },
+
+  removeDreamContainer: {
+    width: '85%', 
+    height: 160, 
+    backgroundColor: '#7550c5', 
+    borderRadius: 8, 
+    alignItems: 'center', 
+    justifyContent: 'space-between'
+  },
+
+  removeDreamTextContainer: {
+    width: '100%', 
+    paddingHorizontal: 20
+  },
+
+  removeDreamTitle: {
+    fontFamily: 'Poppins_700Bold', 
+    fontSize: 24, 
+    lineHeight: 28, 
+    marginTop: 15, 
+    color: '#FEFEFF'
+  },
+
+  removeDreamSubitle: {
+    fontFamily: 'Poppins_700Bold', 
+    fontSize: 17, 
+    lineHeight: 21, 
+    marginTop: 15, 
+    color: '#FEFEFF'
+  },
+
+  removeButtonCancel: {
+    flex: 1, 
+    marginLeft: 5,
+    marginRight: 20,
+    height: 50, 
+    backgroundColor: '#F5F1FD', 
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  removeButtonConfirm: {
+    flex: 1, 
+    marginLeft: 20,
+    marginRight: 5, 
+    height: 50, 
+    backgroundColor: '#FF5454', 
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  removeTextYes: {
+    fontFamily: 'Poppins_700Bold', 
+    fontSize: 24,  
+    color: '#fff',
+  },
+
+  removeTextNo: {
+    fontFamily: 'Poppins_700Bold', 
+    fontSize: 24,  
+    color: '#1D0235',
   }
 })
 
