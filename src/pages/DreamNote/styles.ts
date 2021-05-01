@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
   removeDreamContainer: {
     width: '85%', 
     height: 160, 
-    backgroundColor: '#7550c5', 
+    backgroundColor: '#E5DAFC', 
     borderRadius: 8, 
     alignItems: 'center', 
     justifyContent: 'space-between'
@@ -282,18 +282,17 @@ const styles = StyleSheet.create({
 
   removeDreamTitle: {
     fontFamily: 'Poppins_700Bold', 
-    fontSize: 24, 
-    lineHeight: 28, 
+    fontSize: 28, 
+    lineHeight: 38, 
     marginTop: 15, 
-    color: '#FEFEFF'
+    color: '#360562'
   },
 
   removeDreamSubitle: {
-    fontFamily: 'Poppins_700Bold', 
-    fontSize: 17, 
-    lineHeight: 21, 
-    marginTop: 15, 
-    color: '#FEFEFF'
+    fontFamily: 'Poppins_300Light', 
+    fontSize: 16, 
+    lineHeight: 20, 
+    color: '#360562'
   },
 
   removeButtonCancel: {
@@ -305,6 +304,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 4
   },
 
   removeButtonConfirm: {
@@ -316,6 +316,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 4
   },
 
   removeTextYes: {
