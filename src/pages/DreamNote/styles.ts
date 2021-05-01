@@ -111,6 +111,11 @@ const styles = StyleSheet.create({
     marginTop: 15
   },
 
+  tagContent: {
+    flexDirection: 'row', 
+    alignItems: 'center'
+  },
+
   labelTag: {
     fontFamily: 'Poppins_700Bold', 
     fontSize: 24, 

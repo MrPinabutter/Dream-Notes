@@ -65,51 +65,76 @@ export default function CreateDream() {
         <RectButton
           onPress={handleGoDreamTags}
         >
-          <Feather name="chevron-left" size={32} color="#AC88CC" />
+          <Feather 
+            name="chevron-left" 
+            size={32} 
+            color="#AC88CC" 
+          />
         </RectButton>
+
         <Text style={styles.headerText}>
           Segundo passo
         </Text>
         <View style={{width: 32}}/>
       </View>
 
-      <ScrollView style={{width: '90%'}} contentContainerStyle={{alignItems: 'center'}} showsVerticalScrollIndicator={false}>
-        <View style={{width: '90%', marginBottom: 10}}>
-          <Text style={styles.titleText}>Título (Opcional) </Text>
+      <ScrollView 
+        style={{width: '90%'}} 
+        contentContainerStyle={{alignItems: 'center'}} 
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.dreamTitleContainer}>
+          <Text style={styles.titleText}>
+            Título (Opcional) 
+          </Text>
         </View>
+
         <TextInput 
           style={styles.textInputTitle} 
           maxLength={40}
           value={title}
           onChangeText={setTitle}
-        ></TextInput>
+        />
 
-        <View style={{width: '90%', marginBottom: 10, marginTop: 5}}>
-          <Text style={styles.titleText}>Seu sonho </Text>
+        <View style={styles.titleContainer}>
+          <Text style={styles.titleText}>
+            Seu sonho 
+          </Text>
         </View>
+
         <TextInput 
           style={styles.dreamText} 
           multiline
           value={dreamText}
           onChangeText={setDreamText}
-        ></TextInput>
+        />
         
-        {arrayTags.length != 0 && <View style={{width: '90%', marginBottom: 10, marginTop: 5}}>
-          <Text style={styles.titleText}>Suas tags </Text>
-        </View>}
+        {arrayTags.length != 0 &&
+          <View style={styles.tagLabel}>
+            <Text style={styles.titleText}>
+              Suas tags
+            </Text>
+          </View>
+        }
 
-        <View style={{flexDirection: 'row', flexWrap: 'wrap', width: '100%'}}>
+        <View style={styles.tagContainer}>
           {arrayTags.map((tag: string, idx: number) => {
             return(
               <View key={tag} style={styles.tag}>
-                <View style={{width:6, height: 6, backgroundColor: '#3D3926', borderRadius: 10, marginRight: 5}} />
-                <Text style={styles.tagText}>{tag}</Text>
+                <View style={styles.tagDot} />
+
+                <Text style={styles.tagText}>
+                  {tag}
+                </Text>
               </View>
             )
           })}
         </View>
 
-        <RectButton style={styles.continueButton} onPress={handleSaveDream}>
+        <RectButton 
+          style={styles.continueButton} 
+          onPress={handleSaveDream}
+        >
           <Text style={styles.continueText}>
             Finalizar
           </Text>

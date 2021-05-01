@@ -51,59 +51,79 @@ export default function DreamTags(){
   return(
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity activeOpacity={0.5}
+        <TouchableOpacity 
+          activeOpacity={0.5}
           onPress={() => dispatch(pushAction)}
         >
-          <Feather name="chevron-left" size={32} color="#AC88CC" />
+          <Feather 
+            name="chevron-left" 
+            size={32} 
+            color="#AC88CC" 
+          />
         </TouchableOpacity>
+
         <Text style={styles.headerText}>
           Primeiro passo
         </Text>
+
         <View style={{width: 32}}/>
       </View>
 
-      <View style={{width: '90%', marginTop: 15}}>
+      <View style={styles.infoContent}>
         <Text style={styles.infoText}>
-        - Adicione palavras-chave para te ajudar a lembrar do seu sonho
+          - Adicione palavras-chave para te ajudar a lembrar do seu sonho
         </Text>
+
         <Text style={styles.spanText}>
           ex: morcegos, aviões, passaros
         </Text>
       </View>
       
-      <ScrollView style={{ width: '100%' }} contentContainerStyle={{ alignItems: 'center' }}>
-
-        <View style={{flexDirection: 'row', marginTop: 30, marginBottom: 30, width: '90%'}}>
+      <ScrollView 
+        style={{ width: '100%' }} 
+        contentContainerStyle={{ alignItems: 'center' }}
+      >
+        <View style={styles.tagContainer}>
           <TextInput 
             value={tag}
             style={styles.textInput}
             maxLength={30}
+            onChangeText={(e) => setTag(e.replace('\n', ''))}
             onKeyPress={(event) => {
               if(event.nativeEvent.key == 'Enter'){
                 addTag(tag)
-              }
+              }}
             }
-          }
-          onChangeText={(e) => setTag(e.replace('\n', ''))}
           />
 
           <RectButton
-            onPress={(e) => addTag(tag)}
+            onPress={() => addTag(tag)}
             disallowInterruption 
-            style={styles.addTagsButton}>
+            style={styles.addTagsButton}
+          >
             <Text style={styles.plusText}>
               +
             </Text>
           </RectButton>
         </View>
 
-        <View style={{flexDirection: 'row', flexWrap: 'wrap', width: '95%'}}>
+        <View style={styles.tagsContainer}>
           {arrayTags.map((tag, idx) => {
             return(
               <View key={tag} style={styles.tag}>
-                <Text style={styles.tagText}>{tag}</Text>
-                <RectButton style={{width:20, height:20, alignItems: 'center', justifyContent: 'center'}} onPress={() => removeTag(idx)}>
-                  <Ionicons name="ios-close" size={24} color="#888" />
+                <Text style={styles.tagText}>
+                  {tag}
+                </Text>
+
+                <RectButton 
+                  style={styles.removeTagButton} 
+                  onPress={() => removeTag(idx)}
+                >
+                  <Ionicons 
+                    name="ios-close" 
+                    size={24} 
+                    color="#888" 
+                  />
                 </RectButton>
               </View>
             )
@@ -111,8 +131,11 @@ export default function DreamTags(){
         </View>
       </ScrollView>
 
-      <View style={{height:100, width: '100%', alignItems: 'center', position: 'relative'}}>
-        <RectButton style={styles.continueButton} onPress={handleNavigateToCreateDream}>
+      <View style={styles.continueButtonContainer}>
+        <RectButton 
+          style={styles.continueButton} 
+          onPress={handleNavigateToCreateDream}
+        >
           <Text style={styles.continueText}>
             Continuar
           </Text>

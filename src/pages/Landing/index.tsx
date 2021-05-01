@@ -78,46 +78,66 @@ export default function Landing({route}: any){
 
   if(isLoading){
     return (
-      <View style={{flex:1, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={styles.loading}>
         <AppLoading  />
       </View>
     );
   };
 
   return(
-    <View style={{backgroundColor: '#F2ECFF', height: '100%', alignItems: 'center'}}>
+    <View style={styles.container}>
       <LinearGradient 
-        style={styles.container}
+        style={styles.header}
         colors={['#4E14A8', '#8F27ED']}
         start={{x:0,y:0}}
         end={{x:1,y:1}}
       > 
         <View style={styles.textDate}>
-          <Text style={styles.date}>Dia {new Date().getDate()}/{new Date().getMonth() + 1}</Text>
-          <Text style={styles.registrados}>Sonhos registrados: {dreams.length}</Text>
+          <Text style={styles.date}>
+            Dia {new Date().getDate()}/{new Date().getMonth() + 1}
+          </Text>
+
+          <Text style={styles.registrados}>
+            Sonhos registrados: {dreams.length}
+          </Text>
         </View>
-        <Image source={cloud} style={{marginTop:'8%'}}></Image>
+
+        <Image 
+          source={cloud} 
+          style={{marginTop:'8%'}} 
+        />
       </LinearGradient >
-      <View style={{width: '90%', marginTop: 20}}>
-        <Text style={{fontFamily: 'Poppins_700Bold', fontSize: 24, color: '#1D0235'}}>Seus sonhos</Text>
+
+      <View style={styles.dreamLabel}>
+        <Text style={styles.dreamLabelText}>
+          Seus sonhos
+        </Text>
       </View>
+
       <SearcBox/>
 
-      <ScrollView showsVerticalScrollIndicator={false} style={{width: '100%'}}>
+      <ScrollView 
+        showsVerticalScrollIndicator={false} 
+        style={{width: '100%'}}
+      >
         <View style={styles.notesContainer}>
-          {dreams.map((dream: DreamProps, idx: Number) => {
-            return <Note key={dream.title} dream={dream} id={idx}/>
-          })}
-          <View style={{overflow: 'hidden', width: '40%', height: 100, marginHorizontal:10}} />
+          {dreams.map((dream: DreamProps, idx: Number) => 
+            <Note 
+              key={dream.title} 
+              dream={dream} 
+              id={idx}
+            />
+          )}
+
+          <View style={styles.ghostNote} />
         </View>
       </ScrollView>
 
       {focused && 
-        <View style={{position:'absolute', right: 20, bottom: 30}}>
+        <View style={styles.buttonContainer}>
           <PlusButton/>
         </View>
       }
     </View>
-    
   )
 }

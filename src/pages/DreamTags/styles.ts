@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
     color: '#5E4278'
   },
 
+  infoContent: {
+    width: '90%', 
+    marginTop: 15
+  },
+
   infoText: {
     fontFamily: 'Nunito_400Regular', 
     fontSize: 18, 
@@ -33,6 +38,13 @@ const styles = StyleSheet.create({
     fontSize: 14, 
     color: '#AC88CC', 
     marginTop: 5
+  },
+
+  tagContainer: {
+    flexDirection: 'row', 
+    marginTop: 30, 
+    marginBottom: 30, 
+    width: '90%'
   },
 
   textInput: {
@@ -62,6 +74,13 @@ const styles = StyleSheet.create({
     marginTop: -10
   },
 
+  continueButtonContainer: {
+    height:100, 
+    width: '100%', 
+    alignItems: 'center', 
+    position: 'relative'
+  },
+
   continueButton: {
     width: '90%', 
     height: 55, 
@@ -77,6 +96,12 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins_700Bold',
     fontSize: 24, 
     color: '#fff'
+  },
+
+  tagsContainer: {
+    flexDirection: 'row', 
+    flexWrap: 'wrap', 
+    width: '95%'
   },
 
   tag: {
@@ -108,7 +133,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#222',
     marginRight: 5
-  }
+  },
+
+  removeTagButton: {
+    width:20, 
+    height:20, 
+    alignItems: 'center', 
+    justifyContent: 'center'
+  },
 });
 
 export default styles

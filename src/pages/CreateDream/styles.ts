@@ -22,6 +22,17 @@ const styles = StyleSheet.create({
     color: '#5E4278'
   },
 
+  titleContainer: {
+    width: '90%', 
+    marginBottom: 10, 
+    marginTop: 5
+  },
+
+  dreamTitleContainer: {
+    width: '90%', 
+    marginBottom: 10
+  },
+
   titleText: {
     fontFamily: 'Nunito_700Bold', 
     fontSize: 18, 
@@ -50,6 +61,18 @@ const styles = StyleSheet.create({
     fontFamily: 'Poppins_400Regular',
   },
 
+  tagLabel: {
+    width: '90%', 
+    marginBottom: 10, 
+    marginTop: 5
+  },
+
+  tagContainer: {
+    flexDirection: 'row', 
+    flexWrap: 'wrap', 
+    width: '100%'
+  },
+
   tag: {
     width:'auto', 
     height: 30, 
@@ -62,6 +85,14 @@ const styles = StyleSheet.create({
     marginLeft: 10, 
     marginBottom: 14,
     elevation: 4
+  },
+
+  tagDot: {
+    width:6, 
+    height: 6, 
+    backgroundColor: '#3D3926', 
+    borderRadius: 10, 
+    marginRight: 5
   },
 
   removeTag: {

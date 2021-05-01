@@ -21,14 +21,30 @@ export default function Landing(){
 	    end={{x:1,y:1}}
     >
       <View style={styles.logo}>
-        <Text style={styles.logoText}>Dream {'\n'}Note</Text>
+        <Text style={styles.logoText}>
+          Dream {'\n'}Note
+        </Text>
       </View>
+
       <View style={{width:'100%', alignItems:'center'}}>
-        <Text style={styles.label}>Dreamer</Text>
-        <TextInput placeholder="Seu nome" value={name} onChangeText={setName} style={styles.inputContainer}></TextInput>
+        <Text style={styles.label}>
+          Dreamer
+        </Text>
+
+        <TextInput 
+          placeholder="Seu nome" 
+          value={name}
+          onChangeText={setName} 
+          style={styles.inputContainer} />
       </View>
-      <RectButton style={styles.button} onPress={onSubmmit}>
-        <Text style={styles.buttonText} >Começar</Text>
+
+      <RectButton 
+        style={styles.button} 
+        onPress={onSubmmit}
+      >
+        <Text style={styles.buttonText}>
+          Começar
+        </Text>
       </RectButton>
     </LinearGradient >
   )

@@ -210,7 +210,7 @@ export default function DreamNote() {
           </View>
 
         <View style={styles.contain}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <View style={styles.tagContent}>
             <Text style={styles.labelTag}>
               Tags
             </Text>
@@ -260,7 +260,12 @@ export default function DreamNote() {
           <TouchableOpacity 
             activeOpacity={1} 
             onPress={() => setModalVisible(!modalVisible)} 
-            style={[styles.modalContainer, {backgroundColor: 'rgba(1, 1, 1, 0)'}]}
+            style={
+              [
+                styles.modalContainer, 
+                {backgroundColor: 'rgba(1, 1, 1, 0)'}
+              ]
+            }
           >
             <View style={styles.editTagModalContainer}>
               <View style={styles.editModalContent}>
@@ -292,7 +297,11 @@ export default function DreamNote() {
                   onPress={() => addTag(tag)} 
                   style={styles.addTag}
                 >
-                  <AntDesign name="plus" size={24} color="#fff" />
+                  <AntDesign 
+                    name="plus" 
+                    size={24} 
+                    color="#fff" 
+                  />
                 </TouchableOpacity>
               </View>
 
@@ -306,7 +315,11 @@ export default function DreamNote() {
                       style={styles.closeModalEditTag} 
                       onPress={() => removeTag(idx)}
                     >
-                      <Ionicons name="ios-close" size={24} color="#555" />
+                      <Ionicons 
+                        name="ios-close"
+                        size={24} 
+                        color="#555" 
+                      />
                     </TouchableOpacity>
                   </View>
                 )
@@ -338,7 +351,12 @@ export default function DreamNote() {
           <TouchableOpacity 
             activeOpacity={1} 
             onPress={() => setConfirmDelete(!confirmDelete)} 
-            style={[styles.modalContainer, {backgroundColor: 'rgba(1, 1, 1, 0)'}]}
+            style={
+              [
+                styles.modalContainer, 
+                {backgroundColor: 'rgba(1, 1, 1, 0)'}
+              ]
+            }
           >
             <View style={styles.removeDreamContainer}>
               <View style={styles.removeDreamTextContainer}>
@@ -357,7 +375,9 @@ export default function DreamNote() {
                   style={styles.removeButtonConfirm} 
                   onPress={deleteDream} 
                 >
-                  <Text style={styles.removeTextYes}> Sim </Text>
+                  <Text style={styles.removeTextYes}> 
+                    Sim 
+                  </Text>
                 </TouchableOpacity>
                 
                 <TouchableOpacity 
@@ -365,7 +385,9 @@ export default function DreamNote() {
                   activeOpacity={0.8} 
                   style={styles.removeButtonCancel} 
                 > 
-                  <Text style={styles.removeTextNo}> Não </Text>
+                  <Text style={styles.removeTextNo}> 
+                    Não
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>

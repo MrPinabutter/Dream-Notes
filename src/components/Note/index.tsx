@@ -18,7 +18,7 @@ interface NoteProps {
 }
 
 export default function Note({theme = 0, ...props}:NoteProps) {
-  const { navigate, dispatch } = useNavigation()
+  const { dispatch } = useNavigation()
   const themeColor = [
     ['#B189EB', '#CDB0F6']
   ]
@@ -36,16 +36,23 @@ export default function Note({theme = 0, ...props}:NoteProps) {
       start={{x:0,y:0}}
       end={{x:1,y:1}}
     >  
-      <RectButton style={{flex:1, paddingBottom: 20, overflow: 'hidden'}} onPress={handleNavigaionToDreamNote}>
-        <View style={{padding: 15, paddingTop: 8, overflow: 'hidden', height: 'auto'}}>
+      <RectButton 
+        style={styles.container} 
+        onPress={handleNavigaionToDreamNote}
+      >
+        <View style={styles.dreamContent}>
           { props.dream.title 
           ?
-            <Text style={{fontFamily: 'Nunito_700Bold', color: '#150326', fontSize: 18}}>{props.dream.title}</Text>
+            <Text style={styles.title}>
+              {props.dream.title}
+            </Text>
           :
-            <Text style={{fontFamily: 'Nunito_700Bold', color: '#150326', fontSize: 18}}>Titulo</Text>
+            <Text style={styles.title}>
+              Titulo
+            </Text>
           }
           
-          <Text style={{fontFamily: 'Poppins_300Light', color: '#1A072C', fontSize: 14}}>
+          <Text style={styles.body}>
             {props.dream.dreamText}
           </Text>
         </View>

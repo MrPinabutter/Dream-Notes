@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient'; 
 import { useNavigation, StackActions } from '@react-navigation/native';
 
@@ -15,25 +14,38 @@ export default function PlusButton() {
   }
 
   return (
-    <TouchableOpacity style={{width:'100%', height:'100%', borderRadius:40, elevation: 3}} onPress={handleNavigationToCreateDreams}>
+    <TouchableOpacity 
+      style={styles.container} 
+      onPress={handleNavigationToCreateDreams}
+    >
       <LinearGradient 
         colors={['#6B1CC7', '#8748D2']} 
         start={{x:0,y:0}}
         end={{x:1,y:1}}
         style={styles.linear}
         >
-          <Feather name="plus" size={40} color="white" />
+          <Feather 
+            name="plus" 
+            size={40} 
+            color="white" 
+          />
       </LinearGradient>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    width:'100%', 
+    height:'100%',
+    borderRadius:40, 
+    elevation: 3
+  },
+
   linear: {
     width: 60,
     height: 60,
     borderRadius: 30,
-
     justifyContent: 'center',
     alignItems: 'center',
   }
