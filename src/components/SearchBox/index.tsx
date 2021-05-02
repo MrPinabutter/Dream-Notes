@@ -1,11 +1,38 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {  StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
+interface SearchProps {
+  search: React.Dispatch<React.SetStateAction<DreamProps[]>>;
+  dreams: DreamProps[];
+}
 
-export default function SearcBox() {
+interface DreamProps{
+  arrayTags: Array<string>;
+  title: string;
+  dreamText: string;
+}
+
+export default function SearcBox({ search, dreams }: SearchProps) {
+  const [value, setValue] = useState('');
+
+  function handleChangeText(text: string){
+    setValue(text);
+    search(
+      dreams.filter(val => (
+        val.title.toLowerCase().includes(text.toLowerCase()) || 
+        val.dreamText.toLowerCase().includes(text.toLowerCase())
+      )
+    ))
+  }
+
   return(
-    <TextInput style={styles.box} placeholder="Ainda vou habilitar a pesquisa de sonhos"/>
+    <TextInput 
+      onChangeText={handleChangeText}
+      value={value}
+      style={styles.box} 
+      placeholder="Pesquise"
+    />
   );
 }
 

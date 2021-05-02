@@ -19,7 +19,6 @@ interface DreamProps{
   dreamText: string;
 }
 
-
 type ParamList = {
   Landing?: {
     load: boolean
@@ -30,7 +29,8 @@ type ParamList = {
 export default function Landing({route}: any){
   const [focused, setFocused] = useState(true);
   const [isLoading, setLoading] = useState(true);
-  const [dreams, setDreams] = useState([]);
+  const [dreams, setDreams] = useState<DreamProps[]>([]);
+  const [filteredDreams, setFilteredDreams] = useState<DreamProps[]>([]);
   
   const isFocused = useIsFocused();
 
@@ -61,6 +61,7 @@ export default function Landing({route}: any){
     const value = item ? JSON.parse(item) : [];
     
     setDreams(value);
+    setFilteredDreams(value);
     setLoading(false);
   };
 
@@ -114,16 +115,16 @@ export default function Landing({route}: any){
         </Text>
       </View>
 
-      <SearcBox/>
+      <SearcBox search={setFilteredDreams} dreams={dreams} />
 
       <ScrollView 
         showsVerticalScrollIndicator={false} 
         style={{width: '100%'}}
       >
         <View style={styles.notesContainer}>
-          {dreams.map((dream: DreamProps, idx: Number) => 
+          {filteredDreams.map((dream: DreamProps, idx: Number) => 
             <Note 
-              key={dream.title} 
+              key={dream.title+''+idx} 
               dream={dream} 
               id={idx}
             />
